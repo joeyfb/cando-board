@@ -1,0 +1,239 @@
+/**
+* typography
+*/
+$color-black: #333;
+$color-gray: #848484;
+$color-white: #fff;
+
+$font-fancy: 'Dosis', sans-serif;
+$font-plain: "Lato", sans-serif;
+
+h1,
+h2,
+h3
+{
+	font-family: $font-fancy;
+	color: #color-black;
+}
+
+h1
+{
+	font-weight: 800;
+	letter-spacing: -3px;
+}
+
+h2
+{
+	font-weight: 500;
+}
+
+h4,
+p,
+li
+{
+	font-family: $font-plain;
+	color: #color-black;
+}
+
+/**
+* header style
+*/
+
+header.board-title
+{
+	background: $color-black;
+}
+
+header.main,
+nav.main,
+header.board-title
+{
+	color: white;
+}
+
+/**
+* layout
+*/
+
+// persistent
+$z-persist: 100;
+header.main
+{
+    display: inline-block;
+    position: fixed;
+    top: 0; left: 0;
+    z-index: $z-persist;
+}
+
+nav.main
+{
+    display: inline-block;
+    position: fixed;
+    top: 0; right: 0;
+    z-index: $z-persist;
+}
+
+footer.main
+{
+    display: inline-block;
+    position: fixed;
+    bottom: 0; left: 0;
+	background: $color-white;
+}
+
+// board
+article.board
+{
+    position: absolute;
+    white-space: nowrap;
+    overflow-x: scroll;
+}
+
+header.board-title
+{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    text-align: center;
+}
+
+section.board-list
+{
+    display: inline-block;
+    vertical-align: top;
+
+    width: 275px;
+    white-space: normal;
+}
+
+ul.item-list
+{
+    padding: 0;
+    list-style: none;
+}
+
+/**
+* alignment
+*/
+
+$global-gutter: 1rem;
+$inner-gutter:  0.5rem;
+$space-top: 20px;
+
+// persistent
+header.main
+{
+    padding-left: $global-gutter;
+
+	h1
+	{
+		margin: 0;
+		background: url('/imgs/kanban-logo.png');
+		background-size: 90px, 35px, cover;
+		background-repeat: no-repeat;
+		width: 105px;
+		text-indent: -9000px;
+	}
+
+	padding-top: 14px;
+}
+
+nav.main
+{
+    padding-right: $global-gutter;
+	font-size: 2rem;
+	
+	p
+	{
+		margin: 14px 0 0;
+	}
+}
+
+footer.main
+{
+    padding-left: $global-gutter;
+}
+
+//board
+header.board-title
+{
+	h2 { margin: 0; }
+
+	padding: 20px 0 4px;
+}
+
+div.lists-wrapper
+{
+    margin: 70px $global-gutter $space-top;
+}
+
+section.board-list
+{
+	h3
+	{
+		margin: 5px 0 0;
+	}
+
+	ul
+	{
+		margin: 10px 0 0;
+
+		li:last-child
+		{
+			margin-bottom: 5px;
+		}
+	}
+	
+	padding: 0 7px 5px;
+	border-left: 1px solid $color-black;
+	border-right: 1px solid $color-black;
+
+	border-radius: 5px;
+}
+
+section.board-list + section.board-list
+{
+    margin-left: $inner-gutter;
+}
+
+header.board-title h3
+{
+	margin-top: 26px;
+}
+
+// card
+div.card-item
+{
+	margin-bottom: 10px;
+
+	h4
+	{
+		margin: 0;
+		font-weight: 300;
+	}
+
+	&.active > div.inner-card,
+	&:hover > div.inner-card
+	{
+		display: block;
+	}
+}
+
+div.inner-card
+{
+	display: none;
+
+	p
+	{
+		font-size: 0.7em;
+		margin: 3px 0;
+	}
+}
+
+/**
+* Interactions
+*/
+
+.new
+{
+	color: $color-gray;
+}
