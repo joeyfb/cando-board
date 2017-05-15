@@ -1,4 +1,5 @@
 import React from 'react'
+import Item from './Item'
 
 const List = ({
                 title,
@@ -15,11 +16,9 @@ const List = ({
 
                 <ul className="item-list">
                     {items.map(item =>
-                        <li>
-                             <div className="card-item">
-                                <h4>{item.title}</h4>
-                             </div>
-                        </li>
+                        <Item
+                            title={item.title}
+                        />
                     )}
                 </ul>
             </section>

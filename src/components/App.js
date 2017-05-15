@@ -1,8 +1,5 @@
 import React from 'react'
 import Board from './Board'
-import Footer from './Footer'
-import AddTodo from '../containers/AddTodo'
-import VisibleTodoList from '../containers/VisibleTodoList'
 
 // fake incoming data from container
 const data = {
@@ -24,7 +21,6 @@ const App = () => (
         title="Title pulled from state..."
         lists={data.lists}
     />
-    <Footer />
   </div>
 )
 
