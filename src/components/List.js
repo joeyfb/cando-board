@@ -6,23 +6,21 @@ const List = ({
                 items
               }) =>
 (
-        <div className="lists-wrapper">
-            <section className="board-list">
-                <header className="board-header">
-                    <h3>
-                        {title}
-                    </h3>
-                </header>
+    <section className="board-list">
+        <header className="board-header">
+            <h3>
+                {title}
+            </h3>
+        </header>
 
-                <ul className="item-list">
-                    {items.map(item =>
-                        <Item
-                            title={item.title}
-                        />
-                    )}
-                </ul>
-            </section>
-        </div>
+        <ul className="item-list">
+            {items.map(item =>
+                <Item
+                    title={item.title}
+                />
+            )}
+        </ul>
+    </section>
 )
 
 export default List

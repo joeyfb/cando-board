@@ -9,17 +9,19 @@ const Board = ({
 (
     <article className="board">
         <header className="board-title">
-            <h1>
+            <h2>
                 {title}
-            </h1>
+            </h2>
         </header>
        
-        {lists.map(list =>
-            <List
-                title={list.title}
-                items={list.items}
-            />
-        )}
+        <div className="lists-wrapper">
+            {lists.map(list =>
+                <List
+                    title={list.title}
+                    items={list.items}
+                />
+            )}
+        </div>
 
         <footer>
             footer stuff...
