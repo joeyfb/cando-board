@@ -476,7 +476,7 @@ header.main {
   padding-top: 14px; }
   header.main h1 {
     margin: 0;
-    background: url("/imgs/kanban-logo.png");
+    background: url("./imgs/kanban-logo.png");
     background-size: 90px, 35px, cover;
     background-repeat: no-repeat;
     width: 105px;
@@ -522,13 +522,13 @@ div.card-item {
   div.card-item h4 {
     margin: 0;
     font-weight: 300; }
-  div.card-item.active > div.inner-card,
-  div.card-item:hover > div.inner-card {
+  div.card-item.active > div.inner-item,
+  div.card-item:hover > div.inner-item {
     display: block; }
 
-div.inner-card {
+div.inner-item {
   display: none; }
-  div.inner-card p {
+  div.inner-item p {
     font-size: 0.7em;
     margin: 3px 0; }
 

@@ -17,6 +17,8 @@ const List = ({
             {items.map(item =>
                 <Item
                     title={item.title}
+                    description={item.description}
+                    created={item.created}
                 />
             )}
         </ul>

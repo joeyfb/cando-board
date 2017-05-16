@@ -24,7 +24,6 @@ const Board = ({
         </div>
 
         <footer>
-            footer stuff...
         </footer>
 
     </article>  

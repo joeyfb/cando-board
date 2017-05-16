@@ -127,7 +127,7 @@ header.main
 	h1
 	{
 		margin: 0;
-		background: url('/imgs/kanban-logo.png');
+		background: url('./imgs/kanban-logo.png');
 		background-size: 90px, 35px, cover;
 		background-repeat: no-repeat;
 		width: 105px;
@@ -211,14 +211,14 @@ div.card-item
 		font-weight: 300;
 	}
 
-	&.active > div.inner-card,
-	&:hover > div.inner-card
+	&.active > div.inner-item,
+	&:hover > div.inner-item
 	{
 		display: block;
 	}
 }
 
-div.inner-card
+div.inner-item
 {
 	display: none;
 
