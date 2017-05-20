@@ -505,7 +505,8 @@ section.board-list {
   border-right: 1px solid #333;
   border-radius: 5px; }
   section.board-list h3 {
-    margin: 5px 0 0; }
+    margin: 5px 0 0;
+    text-align: center; }
   section.board-list ul {
     margin: 10px 0 0; }
     section.board-list ul li:last-child {
@@ -535,8 +536,19 @@ div.inner-item {
 /**
 * Interactions
 */
-.new {
+.form {
   color: #848484; }
+
+input {
+  border: none;
+  border-bottom: 1px solid #333;
+  margin-right: 0.5rem; }
+
+button {
+  border: none;
+  color: #fff;
+  background: #333;
+  padding: 0.25rem 0.5rem; }
 
 @media screen and (max-width: 600px) {
   div.lists-wrapper {

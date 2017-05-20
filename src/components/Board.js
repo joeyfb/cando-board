@@ -1,5 +1,6 @@
 import React from 'react'
 import List from './List'
+import AddList from '../containers/AddList.js'
 
 const Board = ({
                 title,
@@ -21,6 +22,16 @@ const Board = ({
                     items={list.items}
                 />
             )}
+            
+            <section className="board-list">
+                <header className="board-header">
+                    <h3>
+                        New List
+                    </h3>
+                </header>
+                
+                <AddList />
+            </section>
         </div>
 
         <footer>

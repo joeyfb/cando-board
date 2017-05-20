@@ -171,6 +171,7 @@ section.board-list
 	h3
 	{
 		margin: 5px 0 0;
+        text-align: center;
 	}
 
 	ul
@@ -233,7 +234,23 @@ div.inner-item
 * Interactions
 */
 
-.new
+.form
 {
 	color: $color-gray;
+}
+
+input
+{
+    border: none;
+    border-bottom: 1px solid $color-black;
+    margin-right: 0.5rem;
+}
+
+button
+{
+    border: none;
+    color: $color-white;
+    background: $color-black;
+
+    padding: 0.25rem 0.5rem;
 }

@@ -18,7 +18,7 @@ const data = {
                                    ]
                         },
                         {
-                            title: "doing",
+                            title: "Doing",
                             items: [
                                         {
                                             title: "pure",

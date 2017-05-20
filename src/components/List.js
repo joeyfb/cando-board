@@ -1,5 +1,6 @@
 import React from 'react'
 import Item from './Item'
+import AddItem from '../containers/AddItem'
 
 const List = ({
                 title,
@@ -21,6 +22,10 @@ const List = ({
                     created={item.created}
                 />
             )}
+
+            <li>
+                <AddItem />
+            </li>
         </ul>
     </section>
 )
