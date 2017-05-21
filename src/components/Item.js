@@ -6,12 +6,19 @@ const Item = ({
                 id,
                 created,
                 checklists,
+                onClick
               }) =>
 (
      <li>
          <div className="card-item"> 
             <h4>
                 {title}
+
+                <span
+                  className="delete-self"
+                  onClick={() => onClick()}
+                >X
+                </span>
             </h4>
 
             <div className="inner-item">

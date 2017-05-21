@@ -1,5 +1,5 @@
 import React from 'react'
-import Item from './Item'
+import Item from '../containers/ChangableItem'
 import AddItem from '../containers/AddItem'
 
 const List = ({
@@ -21,6 +21,7 @@ const List = ({
                     title={item.title}
                     key={item.id}
                     id={item.id}
+                    listId={id}
                     description={item.description}
                     created={item.created}
                 />

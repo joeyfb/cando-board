@@ -550,6 +550,16 @@ button {
   background: #333;
   padding: 0.25rem 0.5rem; }
 
+.delete-self {
+  font-weight: bold;
+  float: right;
+  cursor: pointer;
+  color: #848484; }
+  .delete-self:hover {
+    color: #f00; }
+  .delete-self:hover, .delete-self {
+    transition: color 0.25s ease-in-out; }
+
 @media screen and (max-width: 600px) {
   div.lists-wrapper {
     margin-top: 120px; }
