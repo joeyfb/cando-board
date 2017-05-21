@@ -20,6 +20,7 @@ const Board = ({
                 <List
                     title={list.title}
                     items={list.items}
+                    key={list.id}
                 />
             )}
             

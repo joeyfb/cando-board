@@ -18,6 +18,7 @@ const List = ({
             {items.map(item =>
                 <Item
                     title={item.title}
+                    key={item.id}
                     description={item.description}
                     created={item.created}
                 />
