@@ -12,6 +12,7 @@ const list = (state, action) =>
             }
 
         case 'ADD_ITEM':
+        case 'REMOVE_ITEM':
             if (state.id !== action.id)
             {
               return state
@@ -38,6 +39,7 @@ const lists = (state = [], action) =>
             ];
         
         case 'ADD_ITEM':
+        case 'REMOVE_ITEM':
             return state.map(l =>
                 list(l, action)
               )

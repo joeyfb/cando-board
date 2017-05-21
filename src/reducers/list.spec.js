@@ -208,4 +208,84 @@ describe('lists reducer', () => {
             }
           ])
     })
+  
+  it('should handle REMOVE_ITEM', () =>
+    {
+        expect(
+         lists([{
+                title: 'Done',
+                id: 0,
+                items: [
+                  {
+                    id: 0,
+                    title: 'adding items',
+                    description: 'to lists'
+                  }
+                ]
+            }],
+            {
+                type: 'REMOVE_ITEM',
+                id: 0,
+                items: [
+                  {
+                    id: 0
+                  }
+                ]
+          })).toEqual([
+            {
+                title: 'Done',
+                id: 0,
+                items: []
+            }
+          ])
+        
+        expect(
+         lists([{
+                title: 'Doing',
+                id: 0,
+                items: [
+                  {
+                    id: 0,
+                    title: 'adding items',
+                    description: 'to lists'
+                  },
+                  {
+                    id: 1,
+                    title: 'list addItem tests',
+                    description: 'should have been done before!'
+                  }
+                ]
+            },
+            {
+                title: 'Done',
+                id: 1,
+                items: []
+            }
+           ],
+            {
+                type: 'REMOVE_ITEM',
+                id: 0,
+                items: [
+                  {
+                    id: 1
+                  }
+                ]
+          })).toEqual([
+            {
+                title: 'Doing',
+                id: 0,
+                items: [
+                  {
+                    id: 0,
+                    title: 'adding items',
+                    description: 'to lists'
+                  }                ]
+            },
+            {
+                title: 'Done',
+                id: 1,
+                items: []
+            }
+          ])
+    })
 })
