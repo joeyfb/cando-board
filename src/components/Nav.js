@@ -5,7 +5,7 @@ const Nav = ({
              }) =>
 (
     <nav className="main">
-        <p class="icon">=</p>
+        <p className="icon">=</p>
     </nav>
 )
 

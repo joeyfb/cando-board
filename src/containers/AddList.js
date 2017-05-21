@@ -4,6 +4,7 @@ import { addList } from '../actions'
 
 let AddList = ({
                 dispatch
+                
                }) =>
 {
     let input
@@ -31,5 +32,7 @@ let AddList = ({
         </div>
     )
 }
+
+AddList = connect()(AddList)
 
 export default AddList

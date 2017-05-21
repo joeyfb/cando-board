@@ -1,5 +1,5 @@
 import React from 'react'
-import Board from './Board'
+import Board from '../containers/Board'
 import Header from './Header'
 import Nav from './Nav'
 
@@ -35,10 +35,7 @@ const App = () => (
     <Header />
     <Nav />
 
-    <Board
-        title="Title pulled from state..."
-        lists={data.lists}
-    />
+    <Board />
   </div>
 )
 
