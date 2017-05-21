@@ -95,4 +95,50 @@ describe('items reducer', () =>
         }
     ])
   })
+  
+  it('should handle REMOVE_ITEM', () =>
+  {
+    expect(
+        items([{
+          title: 'Add item reducer',
+          id: 0,
+          description: 'maybe tomorrow cause oh god I am sleepy'
+      }], {
+          type: 'REMOVE_ITEM',
+          items: [
+            {
+              id: 0
+            }
+          ]
+        })
+    ).toEqual([])
+
+    expect(
+        items([{
+          title: 'Add item reducer',
+          id: 0,
+          description: 'maybe tomorrow cause oh god I am sleepy'
+      },
+      {
+          title: 'Do something else',
+          id: 1,
+          description: 'Something I guess'
+      }
+        ], {
+          type: 'REMOVE_ITEM',
+          items: [
+            {
+              id: 0
+            }
+          ]
+        })
+    ).toEqual([
+      {
+          title: 'Do something else',
+          id: 1,
+          description: 'Something I guess'
+      }
+    ])
+  })
+
 })

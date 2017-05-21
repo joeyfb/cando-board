@@ -30,6 +30,9 @@ const items = (state = [], action) =>
             )
       ]
 
+    case 'REMOVE_ITEM':
+      return state.filter(i => i.id !== action.items[0].id)
+
     default:
       return state
   }
