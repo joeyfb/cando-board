@@ -33,4 +33,6 @@ let AddItem = ({
     )
 }
 
+AddItem = connect()(AddItem)
+
 export default AddItem

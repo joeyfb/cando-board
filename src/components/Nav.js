@@ -1,8 +1,6 @@
 import React from 'react'
 
-const Nav = ({
-
-             }) =>
+const Nav = () =>
 (
     <nav className="main">
         <p className="icon">=</p>

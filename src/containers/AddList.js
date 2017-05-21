@@ -4,7 +4,6 @@ import { addList } from '../actions'
 
 let AddList = ({
                 dispatch
-                
                }) =>
 {
     let input
