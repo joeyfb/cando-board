@@ -82,4 +82,37 @@ describe('lists reducer', () => {
           ])
     })
 
+  it('should handle ADD_ITEM', () =>
+    {
+        expect(
+         lists([{
+                title: 'Done',
+                id: 0,
+                items: []
+            }],
+            {
+                type: 'ADD_ITEM',
+                id: 0,
+                items: [
+                  {
+                    id: 0,
+                    title: 'adding items',
+                    description: 'to lists'
+                  }
+                ]
+          })).toEqual([
+            {
+                title: 'Done',
+                id: 0,
+                items: [
+                  {
+                    id: 0,
+                    title: 'adding items',
+                    description: 'to lists'
+                  }
+                ]
+            }
+          ])
+
+    })
 })
