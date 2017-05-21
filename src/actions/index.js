@@ -19,3 +19,14 @@ export const addItem = (listId, title, description) =>
             }
   ]
 })
+
+export const removeItem = (listId, itemId) =>
+({
+  type: 'REMOVE_ITEM',
+  id: listId,
+  items: [
+    {
+      id: itemId
+    }
+  ]
+})
