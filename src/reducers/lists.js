@@ -26,6 +26,7 @@ const lists = (state = [], action) =>
 
         default:
             return state;
-
     }
 }
+
+export default lists

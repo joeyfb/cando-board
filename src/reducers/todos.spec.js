@@ -1,111 +1,85 @@
-import todos from './todos'
+import lists from './lists'
 
-describe('todos reducer', () => {
+describe('lists reducer', () => {
   it('should handle initial state', () => {
     expect(
-      todos(undefined, {})
+      lists(undefined, {})
     ).toEqual([])
   })
 
-  it('should handle ADD_TODO', () => {
-    expect(
-      todos([], {
-        type: 'ADD_TODO',
-        text: 'Run the tests',
-        id: 0
-      })
-    ).toEqual([
-      {
-        text: 'Run the tests',
-        completed: false,
-        id: 0
-      }
-    ])
+  it('should handle ADD_LIST', () =>
+    {
+        expect(
+            lists([], {
+                type: 'ADD_LIST',
+                title: 'Done',
+                id: 0,
+                items: []
+            })).toEqual([
+                {
+                    title: 'Done',
+                    id: 0,
+                    items: []
+                }
+            ])
 
-    expect(
-      todos([
-        {
-          text: 'Run the tests',
-          completed: false,
-          id: 0
-        }
-      ], {
-        type: 'ADD_TODO',
-        text: 'Use Redux',
-        id: 1
-      })
-    ).toEqual([
-      {
-        text: 'Run the tests',
-        completed: false,
-        id: 0
-      }, {
-        text: 'Use Redux',
-        completed: false,
-        id: 1
-      }
-    ])
+        expect(
+         lists([{
+                title: 'Done',
+                id: 0,
+                items: []
+            }],
+            {
+                type: 'ADD_LIST',
+                title: 'Later',
+                id: 1,
+                items: []
+          })).toEqual([
+            {
+                title: 'Done',
+                id: 0,
+                items: []
+            },
+            {
+                title: 'Later',
+                id: 1,
+                items: []
+            }
+          ])
 
-    expect(
-      todos([
-        {
-          text: 'Run the tests',
-          completed: false,
-          id: 0
-        }, {
-          text: 'Use Redux',
-          completed: false,
-          id: 1
-        }
-      ], {
-        type: 'ADD_TODO',
-        text: 'Fix the tests',
-        id: 2
-      })
-    ).toEqual([
-      {
-        text: 'Run the tests',
-        completed: false,
-        id: 0
-      }, {
-        text: 'Use Redux',
-        completed: false,
-        id: 1
-      }, {
-        text: 'Fix the tests',
-        completed: false,
-        id: 2
-      }
-    ])
-  })
-
-  it('should handle TOGGLE_TODO', () => {
-    expect(
-      todos([
-        {
-          text: 'Run the tests',
-          completed: false,
-          id: 1
-        }, {
-          text: 'Use Redux',
-          completed: false,
-          id: 0
-        }
-      ], {
-        type: 'TOGGLE_TODO',
-        id: 1
-      })
-    ).toEqual([
-      {
-        text: 'Run the tests',
-        completed: true,
-        id: 1
-      }, {
-        text: 'Use Redux',
-        completed: false,
-        id: 0
-      }
-    ])
-  })
+        expect(
+         lists([{
+                title: 'Done',
+                id: 0,
+                items: []
+            },
+            {
+                title: 'Later',
+                id: 1,
+                items: []
+            }],
+            {
+                type: 'ADD_LIST',
+                title: 'Never ever',
+                id: 2,
+                items: []
+          })).toEqual([
+            {
+                title: 'Done',
+                id: 0,
+                items: []
+            },
+            {
+                title: 'Later',
+                id: 1,
+                items: []
+            },
+            {
+                title: 'Never ever',
+                id: 2,
+                items: []
+            }
+          ])
+    })
 
 })
