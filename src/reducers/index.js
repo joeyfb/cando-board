@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux'
-import lists from './lists'
+import board from './board'
 
-const boardApp = combineReducers({
-  lists
-})
+const boardApp = board
 
 export default boardApp
