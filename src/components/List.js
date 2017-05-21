@@ -4,6 +4,7 @@ import AddItem from '../containers/AddItem'
 
 const List = ({
                 title,
+                id,
                 items
               }) =>
 (
@@ -19,13 +20,16 @@ const List = ({
                 <Item
                     title={item.title}
                     key={item.id}
+                    id={item.id}
                     description={item.description}
                     created={item.created}
                 />
             )}
 
             <li>
-                <AddItem />
+                <AddItem 
+                  listId={id}
+                />
             </li>
         </ul>
     </section>

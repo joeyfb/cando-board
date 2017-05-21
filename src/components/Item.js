@@ -3,6 +3,7 @@ import React from 'react'
 const Item = ({
                 title,
                 description,
+                id,
                 created,
                 checklists,
               }) =>
@@ -22,7 +23,6 @@ const Item = ({
                     {created} 
                 </p> 
             </div>
-
          </div>
      </li>
 )

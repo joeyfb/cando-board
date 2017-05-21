@@ -19,6 +19,7 @@ const Board = ({
             {lists.map(list =>
                 <List
                     title={list.title}
+                    id={list.id}
                     items={list.items}
                     key={list.id}
                 />

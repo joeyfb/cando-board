@@ -9,11 +9,11 @@ const data = {
                             items: [
                                         {
                                           title: "make containers",
-                                          id: 0
+                                          id: 'a'
                                         },
                                         {
                                           title: "action stuff",
-                                          id: 1
+                                          id: 'b'
                                         }
                                    ]
                         },
@@ -23,7 +23,7 @@ const data = {
                             items: [
                                         {
                                             title: "pure",
-                                            id: 0,
+                                            id: 'a',
                                             description: "I have no clue what I meant when I wrote pure",
                                             created: "May 15th, 2017"
                                         }

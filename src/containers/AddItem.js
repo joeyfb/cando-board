@@ -1,8 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { addItem } from '../actions'
 
 let AddItem = ({
-                 dispatch  
+                 dispatch,
+                 listId
                }) =>
 {
     let input
@@ -17,8 +19,8 @@ let AddItem = ({
                                 return
                             }
 
-                            // dispatch action
-                            
+                            dispatch(addItem(listId, input.value))
+
                             input.value = ""
                        }}>
                 
