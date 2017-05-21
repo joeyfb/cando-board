@@ -4,7 +4,7 @@ import Board from '../components/Board'
 
 const mapStateToProps = (state) =>
 ({
-  title: 'this is not state',
+  title: state.title,
   lists: state.lists
 })
 

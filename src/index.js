@@ -5,8 +5,9 @@ import { Provider } from 'react-redux'
 import App from './components/App'
 import reducer from './reducers'
 import './App.css';
+import preload from './hydrate'
 
-const store = createStore(reducer)
+const store = createStore(reducer, preload)
 
 render(
   <Provider store={store}>
