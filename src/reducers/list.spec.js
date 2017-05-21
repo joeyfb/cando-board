@@ -114,5 +114,98 @@ describe('lists reducer', () => {
             }
           ])
 
+        expect(
+         lists([{
+                title: 'Done',
+                id: 0,
+                items: [
+                  {
+                    id: 0,
+                    title: 'adding items',
+                    description: 'to lists'
+                  }
+                ]
+            }],
+            {
+                type: 'ADD_ITEM',
+                id: 0,
+                items: [
+                  {
+                    id: 1,
+                    title: 'list addItem tests',
+                    description: 'should have been done before!'
+                  }
+                ]
+          })).toEqual([
+            {
+                title: 'Done',
+                id: 0,
+                items: [
+                  {
+                    id: 0,
+                    title: 'adding items',
+                    description: 'to lists'
+                  },
+                  {
+                    id: 1,
+                    title: 'list addItem tests',
+                    description: 'should have been done before!'
+                  }
+                ]
+            }
+          ])
+        
+        expect(
+         lists([{
+                title: 'Doing',
+                id: 0,
+                items: [
+                  {
+                    id: 0,
+                    title: 'list addItem tests',
+                    description: 'should have been done before!'
+                  }
+                ]
+            },
+            {
+                title: 'Done',
+                id: 1,
+                items: []
+            }
+           ],
+            {
+                type: 'ADD_ITEM',
+                id: 1,
+                items: [
+                  {
+                    id: 0,
+                    title: 'adding items',
+                    description: 'to lists'
+                  }
+                ]
+          })).toEqual([
+            {
+                title: 'Doing',
+                id: 0,
+                items: [
+                  {
+                    id: 0,
+                    title: 'list addItem tests',
+                    description: 'should have been done before!'
+                  }
+                ]
+            },
+            {
+                title: 'Done',
+                id: 1,
+                items: [
+                  {
+                    id: 0,
+                    title: 'adding items',
+                    description: 'to lists'
+                  }
+                ]
+            }
+          ])
     })
 })

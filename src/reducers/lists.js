@@ -9,7 +9,7 @@ const list = (state, action) =>
                 title: action.title,
                 id: action.id,
                 items: []
-            };
+            }
 
         case 'ADD_ITEM':
             if (state.id !== action.id)
