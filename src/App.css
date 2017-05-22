@@ -550,15 +550,24 @@ button {
   background: #333;
   padding: 0.25rem 0.5rem; }
 
-.delete-self {
+.delete-button {
   font-weight: bold;
   float: right;
   cursor: pointer;
   color: #848484; }
-  .delete-self:hover {
+  .delete-button:hover {
     color: #f00; }
-  .delete-self:hover, .delete-self {
+  .delete-button:hover, .delete-button {
     transition: color 0.25s ease-in-out; }
+
+.card-item .delete-button {
+  color: #fff; }
+
+.card-item:hover .delete-button {
+  color: #848484; }
+
+.card-item:hover .delete-button:hover {
+  color: #f00; }
 
 @media screen and (max-width: 600px) {
   div.lists-wrapper {

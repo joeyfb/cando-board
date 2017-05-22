@@ -1,4 +1,5 @@
 import React from 'react'
+import DeleteButton from './DeleteButton'
 
 const Item = ({
                 title,
@@ -14,11 +15,9 @@ const Item = ({
             <h4>
                 {title}
 
-                <span
-                  className="delete-self"
-                  onClick={() => onClick()}
-                >X
-                </span>
+                <DeleteButton
+                  onClick={onClick}
+                />
             </h4>
 
             <div className="inner-item">

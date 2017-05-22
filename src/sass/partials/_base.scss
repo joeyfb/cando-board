@@ -256,7 +256,7 @@ button
     padding: 0.25rem 0.5rem;
 }
 
-.delete-self
+.delete-button
 {
   font-weight: bold;
   float: right;
@@ -273,5 +273,23 @@ button
   &
   {
     transition: color 0.25s ease-in-out;
+  }
+}
+
+.card-item
+{
+  .delete-button
+  {
+    color: $color-white;
+  }
+
+  &:hover .delete-button
+  {
+    color: $color-gray;
+  }
+
+  &:hover .delete-button:hover
+  {
+    color: $color-red;
   }
 }
