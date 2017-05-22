@@ -3,11 +3,6 @@ import { connect } from 'react-redux'
 import { removeItem } from '../actions'
 import Item from '../components/Item'
 
-const mapStateToProps = (state, ownProps) =>
-({
-
-})
-
 const mapDispatchToProps = (dispatch, ownProps) =>
 ({
   onClick: () =>
@@ -23,9 +18,9 @@ const mapDispatchToProps = (dispatch, ownProps) =>
     }
 })
 
-const DeletableItem = connect(
-  mapStateToProps,
+const ChangableItem = connect(
+  null,
   mapDispatchToProps
 )(Item)
 
-export default DeletableItem
+export default ChangableItem

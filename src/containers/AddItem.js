@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 import { addItem } from '../actions'
 
 let AddItem = ({
-                 dispatch,
-                 listId
-               }) =>
+  dispatch,
+  listId
+}) =>
 {
     let input
 

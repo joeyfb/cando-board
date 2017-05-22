@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import { addList } from '../actions'
 
 let AddList = ({
-                dispatch
-               }) =>
+  dispatch
+}) =>
 {
     let input
 

@@ -7,9 +7,10 @@ const DeleteButton = ({
 (
   <Button
     type={'delete-button'}
-    text={'X'}
     onClick={onClick}
-  />
+  >
+    X
+  </Button>
 )
 
 export default DeleteButton

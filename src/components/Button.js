@@ -2,7 +2,7 @@ import React from 'react'
 
 const Button = ({
                   type,
-                  text,
+                  children,
                   onClick
                 }) =>
 (
@@ -10,7 +10,7 @@ const Button = ({
     className={"button " + type}
     onClick={() => onClick()}
   >
-    {text}
+    {children}
   </span>
 )
 
