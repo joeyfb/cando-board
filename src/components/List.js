@@ -1,5 +1,5 @@
 import React from 'react'
-import Item from '../containers/ChangableItem'
+import ChangableItem from '../containers/ChangableItem'
 import AddItem from '../containers/AddItem'
 
 const List = ({
@@ -17,13 +17,10 @@ const List = ({
 
         <ul className="item-list">
             {items.map(item =>
-                <Item
-                    title={item.title}
+                <ChangableItem
                     key={item.id}
                     id={item.id}
                     listId={id}
-                    description={item.description}
-                    created={item.created}
                 />
             )}
 
