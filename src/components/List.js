@@ -1,17 +1,23 @@
 import React from 'react'
+import DeleteButton from './DeleteButton'
 import ChangableItem from '../containers/ChangableItem'
 import AddItem from '../containers/AddItem'
 
 const List = ({
                 title,
                 id,
-                items
+                items,
+                onClick
               }) =>
 (
     <section className="board-list">
         <header className="board-header">
             <h3>
-                {title}
+              {title}
+
+              <DeleteButton
+                onClick={onClick}
+              />
             </h3>
         </header>
 

@@ -276,19 +276,20 @@ button
   }
 }
 
-.card-item
+.card-item h4,
+section.board-list h3
 {
   .delete-button
   {
     color: $color-white;
   }
 
-  &:hover .delete-button
+  &:hover > .delete-button
   {
     color: $color-gray;
   }
 
-  &:hover .delete-button:hover
+  &:hover > .delete-button:hover
   {
     color: $color-red;
   }

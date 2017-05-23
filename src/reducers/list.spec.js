@@ -279,7 +279,8 @@ describe('lists reducer', () => {
                     id: 0,
                     title: 'adding items',
                     description: 'to lists'
-                  }                ]
+                  }
+                ]
             },
             {
                 title: 'Done',
@@ -287,5 +288,57 @@ describe('lists reducer', () => {
                 items: []
             }
           ])
+    })
+
+  it('should handle REMOVE_LIST', () =>
+    {
+      expect(
+        lists([
+          {
+            id: 0,
+            title: 'In',
+            itmes: []
+          }
+        ],
+        {
+          type: 'REMOVE_LIST',
+          id: 0
+        })).toEqual([])
+      
+      expect(
+        lists([
+          {
+            id: 0,
+            title: 'In',
+                items: [
+                  {
+                    id: 0,
+                    title: 'adding items',
+                    description: 'to lists'
+                  }
+                ]
+          },
+          {
+            id: 1,
+            title: 'Out',
+            itmes: []
+          }
+        ],
+        {
+          type: 'REMOVE_LIST',
+          id: 1
+        })).toEqual([
+          {
+            id: 0,
+            title: 'In',
+                items: [
+                  {
+                    id: 0,
+                    title: 'adding items',
+                    description: 'to lists'
+                  }
+                ]
+          }
+        ])
     })
 })

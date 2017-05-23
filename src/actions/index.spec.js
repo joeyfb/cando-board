@@ -45,4 +45,14 @@ describe('list actions', () => {
 
   })
 
+  it('removeList should create REMOVE_LIST action', () => {
+
+    expect(actions.removeList(0,0)
+    ).toEqual({
+      type: 'REMOVE_LIST',
+      id: 0,
+    })
+
+  })
+
 })

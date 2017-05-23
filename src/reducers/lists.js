@@ -37,7 +37,10 @@ const lists = (state = [], action) =>
                 ...state,
                 list(undefined, action)
             ];
-        
+       
+        case 'REMOVE_LIST':
+            return state.filter(l => l.id !== action.id)
+
         case 'ADD_ITEM':
         case 'REMOVE_ITEM':
             return state.map(l =>

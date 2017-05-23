@@ -1,5 +1,5 @@
 import React from 'react'
-import List from './List'
+import ChangableList from '../containers/ChangableList'
 import AddList from '../containers/AddList.js'
 
 const Board = ({
@@ -17,10 +17,8 @@ const Board = ({
        
         <div className="lists-wrapper">
             {lists.map(list =>
-                <List
-                    title={list.title}
+                <ChangableList
                     id={list.id}
-                    items={list.items}
                     key={list.id}
                 />
             )}

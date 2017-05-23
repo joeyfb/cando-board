@@ -30,3 +30,9 @@ export const removeItem = (listId, itemId) =>
     }
   ]
 })
+
+export const removeList = (id) =>
+({
+  type: 'REMOVE_LIST',
+  id
+})

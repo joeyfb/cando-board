@@ -560,13 +560,16 @@ button {
   .delete-button:hover, .delete-button {
     transition: color 0.25s ease-in-out; }
 
-.card-item .delete-button {
+.card-item h4 .delete-button,
+section.board-list h3 .delete-button {
   color: #fff; }
 
-.card-item:hover .delete-button {
+.card-item h4:hover > .delete-button,
+section.board-list h3:hover > .delete-button {
   color: #848484; }
 
-.card-item:hover .delete-button:hover {
+.card-item h4:hover > .delete-button:hover,
+section.board-list h3:hover > .delete-button:hover {
   color: #f00; }
 
 @media screen and (max-width: 600px) {
