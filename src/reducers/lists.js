@@ -23,7 +23,7 @@ const list = (state, action) =>
             }
 
         case 'REMOVE_ITEM':
-            console.log(state, action)
+            
             if (state.id !== action.id)
             {
               return state

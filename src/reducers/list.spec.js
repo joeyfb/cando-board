@@ -94,7 +94,9 @@ describe('lists reducer', () => {
                 type: 'ADD_ITEM',
                 id: 0,
                 items: [
-                    0
+                  {
+                    id: 0
+                  }
                 ]
           })).toEqual([
             {
@@ -118,7 +120,9 @@ describe('lists reducer', () => {
                 type: 'ADD_ITEM',
                 id: 0,
                 items: [
-                    1
+                  {
+                    id: 1
+                  }
                 ]
           })).toEqual([
             {
@@ -149,7 +153,9 @@ describe('lists reducer', () => {
                 type: 'ADD_ITEM',
                 id: 1,
                 items: [
-                    0
+                  {
+                    id: 0
+                  }
                 ]
           })).toEqual([
             {
@@ -183,7 +189,9 @@ describe('lists reducer', () => {
                 type: 'REMOVE_ITEM',
                 id: 0,
                 items: [
-                    0
+                  {
+                    id: 0
+                  }
                 ]
           })).toEqual([
             {
@@ -212,7 +220,9 @@ describe('lists reducer', () => {
                 type: 'REMOVE_ITEM',
                 id: 0,
                 items: [
-                    1
+                  {
+                    id: 1
+                  }
                 ]
           })).toEqual([
             {

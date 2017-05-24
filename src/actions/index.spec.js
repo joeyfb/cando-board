@@ -6,7 +6,15 @@ describe('list actions', () => {
     expect(actions.addList('To Do')).toEqual({
       type: 'ADD_LIST',
       id: 0,
-      title: 'To Do'
+      title: 'To Do',
+      items: []
+    })
+    
+    expect(actions.addList('Done', [5])).toEqual({
+      type: 'ADD_LIST',
+      id: 1,
+      title: 'Done',
+      items: [5]
     })
   })
 

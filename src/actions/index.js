@@ -1,8 +1,9 @@
 let nextListId = 0;
-export const addList = (title) =>
+export const addList = (title, items=[]) =>
 ({
     type: 'ADD_LIST',
     id: nextListId++,
+    items,
     title
 })
 
