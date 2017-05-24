@@ -94,22 +94,14 @@ describe('lists reducer', () => {
                 type: 'ADD_ITEM',
                 id: 0,
                 items: [
-                  {
-                    id: 0,
-                    title: 'adding items',
-                    description: 'to lists'
-                  }
+                    0
                 ]
           })).toEqual([
             {
                 title: 'Done',
                 id: 0,
                 items: [
-                  {
-                    id: 0,
-                    title: 'adding items',
-                    description: 'to lists'
-                  }
+                    0
                 ]
             }
           ])
@@ -119,38 +111,22 @@ describe('lists reducer', () => {
                 title: 'Done',
                 id: 0,
                 items: [
-                  {
-                    id: 0,
-                    title: 'adding items',
-                    description: 'to lists'
-                  }
+                    0
                 ]
             }],
             {
                 type: 'ADD_ITEM',
                 id: 0,
                 items: [
-                  {
-                    id: 1,
-                    title: 'list addItem tests',
-                    description: 'should have been done before!'
-                  }
+                    1
                 ]
           })).toEqual([
             {
                 title: 'Done',
                 id: 0,
                 items: [
-                  {
-                    id: 0,
-                    title: 'adding items',
-                    description: 'to lists'
-                  },
-                  {
-                    id: 1,
-                    title: 'list addItem tests',
-                    description: 'should have been done before!'
-                  }
+                    0,
+                    1
                 ]
             }
           ])
@@ -160,11 +136,7 @@ describe('lists reducer', () => {
                 title: 'Doing',
                 id: 0,
                 items: [
-                  {
-                    id: 0,
-                    title: 'list addItem tests',
-                    description: 'should have been done before!'
-                  }
+                    0
                 ]
             },
             {
@@ -177,33 +149,21 @@ describe('lists reducer', () => {
                 type: 'ADD_ITEM',
                 id: 1,
                 items: [
-                  {
-                    id: 0,
-                    title: 'adding items',
-                    description: 'to lists'
-                  }
+                    0
                 ]
           })).toEqual([
             {
                 title: 'Doing',
                 id: 0,
                 items: [
-                  {
-                    id: 0,
-                    title: 'list addItem tests',
-                    description: 'should have been done before!'
-                  }
+                    0
                 ]
             },
             {
                 title: 'Done',
                 id: 1,
                 items: [
-                  {
-                    id: 0,
-                    title: 'adding items',
-                    description: 'to lists'
-                  }
+                    0
                 ]
             }
           ])
@@ -216,20 +176,14 @@ describe('lists reducer', () => {
                 title: 'Done',
                 id: 0,
                 items: [
-                  {
-                    id: 0,
-                    title: 'adding items',
-                    description: 'to lists'
-                  }
+                    0
                 ]
             }],
             {
                 type: 'REMOVE_ITEM',
                 id: 0,
                 items: [
-                  {
-                    id: 0
-                  }
+                    0
                 ]
           })).toEqual([
             {
@@ -244,21 +198,13 @@ describe('lists reducer', () => {
                 title: 'Doing',
                 id: 0,
                 items: [
-                  {
-                    id: 0,
-                    title: 'adding items',
-                    description: 'to lists'
-                  },
-                  {
-                    id: 1,
-                    title: 'list addItem tests',
-                    description: 'should have been done before!'
-                  }
+                    0,
+                    1
                 ]
             },
             {
-                title: 'Done',
                 id: 1,
+                title: 'Done',
                 items: []
             }
            ],
@@ -266,20 +212,14 @@ describe('lists reducer', () => {
                 type: 'REMOVE_ITEM',
                 id: 0,
                 items: [
-                  {
-                    id: 1
-                  }
+                    1
                 ]
           })).toEqual([
             {
                 title: 'Doing',
                 id: 0,
                 items: [
-                  {
-                    id: 0,
-                    title: 'adding items',
-                    description: 'to lists'
-                  }
+                    0
                 ]
             },
             {
@@ -311,11 +251,7 @@ describe('lists reducer', () => {
             id: 0,
             title: 'In',
                 items: [
-                  {
-                    id: 0,
-                    title: 'adding items',
-                    description: 'to lists'
-                  }
+                    0
                 ]
           },
           {
@@ -332,11 +268,7 @@ describe('lists reducer', () => {
             id: 0,
             title: 'In',
                 items: [
-                  {
-                    id: 0,
-                    title: 'adding items',
-                    description: 'to lists'
-                  }
+                    0
                 ]
           }
         ])

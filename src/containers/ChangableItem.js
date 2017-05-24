@@ -5,11 +5,7 @@ import Item from '../components/Item'
 
 const mapStateToProps = (state, ownProps) =>
 { 
-  const list = state.lists.find( (l) =>
-    l.id === ownProps.listId
-  )
-  
-  const item = list.items.find( (i) =>
+  const item = state.items.find( (i) =>
     i.id === ownProps.id
   )
 

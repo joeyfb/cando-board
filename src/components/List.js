@@ -22,10 +22,10 @@ const List = ({
         </header>
 
         <ul className="item-list">
-            {items.map(item =>
+            {items.map(iId =>
                 <ChangableItem
-                    key={item.id}
-                    id={item.id}
+                    key={iId}
+                    id={iId}
                     listId={id}
                 />
             )}

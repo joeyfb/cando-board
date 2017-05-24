@@ -1,7 +1,7 @@
-import items from './items'
-
 const list = (state, action) =>
 {
+    const ids = action.items.map((i) => i.id)
+
     switch (action.type)
     {
         case 'ADD_LIST':
@@ -12,7 +12,6 @@ const list = (state, action) =>
             }
 
         case 'ADD_ITEM':
-        case 'REMOVE_ITEM':
             if (state.id !== action.id)
             {
               return state
@@ -20,7 +19,21 @@ const list = (state, action) =>
 
             return {
                 ...state,
-                items: items(state.items, action)
+                items: state.items.concat( ids )
+            }
+
+        case 'REMOVE_ITEM':
+            console.log(state, action)
+            if (state.id !== action.id)
+            {
+              return state
+            }
+            
+            return {
+                ...state,
+                items: state.items.filter( (id) =>
+                    ids.indexOf(id) === -1
+                )
             }
 
         default:
