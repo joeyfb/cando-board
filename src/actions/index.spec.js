@@ -1,32 +1,51 @@
 import * as actions from './index'
 
+const zeroIds = (obj) =>
+{
+
+  obj['id'] = 0
+
+  if (obj['items'])
+  {
+    obj['items'] = obj.items.map( (i) =>
+        {
+          i.id = 0
+
+          return i
+        })
+  }
+
+  return obj
+}
+
 describe('list actions', () => {
 
   it('addList should create ADD_LIST action', () => {
-    expect(actions.addList('To Do')).toEqual({
-      type: 'ADD_LIST',
-      id: 0,
-      title: 'To Do',
-      items: []
-    })
+ 
+    expect(
+         zeroIds(actions.addList('To Do'))
+      ).toEqual({
+        type: 'ADD_LIST',
+        id: 0,
+        title: 'To Do',
+        items: []
+      })
     
-    expect(actions.addList('Done', [5])).toEqual({
-      type: 'ADD_LIST',
-      id: 1,
-      title: 'Done',
-      items: [5]
-    })
   })
 
   it('addItem should create ADD_ITEM action', () => {
 
-    expect(actions.addItem(
-          1,
+    expect(
+       zeroIds( 
+        actions.addItem(
+          0,
           'Cover untested case',
-          'for add item')
+          'for add item'
+        )
+      )
     ).toEqual({
       type: 'ADD_ITEM',
-      id: 1,
+      id: 0,
       items: [
         {
           id: 0,

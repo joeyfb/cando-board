@@ -1,20 +1,20 @@
-let nextListId = 0;
-export const addList = (title, items=[]) =>
+import { v4 } from 'node-uuid'
+
+export const addList = (title) =>
 ({
     type: 'ADD_LIST',
-    id: nextListId++,
-    items,
+    id: v4(),
+    items: [],
     title
 })
 
-let nextItemId = 0;
 export const addItem = (listId, title, description) =>
 ({
   type: 'ADD_ITEM',
   id: listId,
   items: [
             {
-              id: nextItemId++,
+              id: v4(),
               title,
               description
             }

@@ -13,12 +13,10 @@ describe('lists reducer', () => {
             lists([], {
                 type: 'ADD_LIST',
                 title: 'Done',
-                id: 0,
                 items: []
             })).toEqual([
                 {
                     title: 'Done',
-                    id: 0,
                     items: []
                 }
             ])
