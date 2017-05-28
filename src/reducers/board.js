@@ -1,14 +1,26 @@
-import lists from './lists'
-import cards from './cards'
-import moving from './moving'
-
 const board = (state = {}, action) =>
-({
-  title: state.title,
-  id: state.id,
-  lists: lists(state.lists, action),
-  cards: cards(state.cards, action),
-  moving: moving(state.moving, action)
-})
+{
+  switch (action.type)
+  {
+    case 'ADD_LIST':
+      return {
+        ...state,
+        lists: [
+          ...state.lists,
+          action.id
+        ]
+      }
+
+    case 'REMOVE_LIST':
+      return {
+        ...state,
+        lists: state.lists.filter( (id) => id !== action.id )
+        
+      }
+
+    default:
+      return state
+  }
+}
 
 export default board

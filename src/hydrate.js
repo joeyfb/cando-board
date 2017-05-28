@@ -1,6 +1,10 @@
 const data = {
-  title: "Stateful title!",
-  id: 0,
+  
+  board: {
+    title: "Stateful title!",
+    id: 0,
+    lists: [ 'a', 'b' ]
+  },
 
   lists: [
     {

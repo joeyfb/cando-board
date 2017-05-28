@@ -1,6 +1,8 @@
 import lists from './lists'
 
-describe('lists reducer', () => {
+describe('lists reducer', () =>
+{
+
   it('should handle initial state', () => {
     expect(
       lists(undefined, {})

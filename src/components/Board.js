@@ -16,10 +16,10 @@ const Board = ({
         </header>
        
         <div className="lists-wrapper">
-            {lists.map(list =>
+            {lists.map(listId =>
                 <ChangableList
-                    id={list.id}
-                    key={list.id}
+                    id={listId}
+                    key={listId}
                 />
             )}
             

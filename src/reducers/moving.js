@@ -1,4 +1,4 @@
-const moving = (state, action) =>
+const moving = (state = {}, action) =>
 {
   switch (action.type)
   {
@@ -8,7 +8,7 @@ const moving = (state, action) =>
       }
 
     case 'MOVE_STOP':
-      return  undefined
+      return  {}
 
     default:
       return state

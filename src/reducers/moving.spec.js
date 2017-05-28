@@ -8,7 +8,7 @@ describe('moving reducer', () =>
       
         expect(
             moving(undefined, {})
-          ).toEqual(undefined)
+          ).toEqual({})
       
       })
 
@@ -92,7 +92,7 @@ describe('moving reducer', () =>
               type: 'MOVE_STOP',
               status: 'fail'
             })
-        ).toEqual(undefined)
+          ).toEqual({})
         
         expect(
             moving({
@@ -105,7 +105,7 @@ describe('moving reducer', () =>
               type: 'MOVE_STOP',
               status: 'fail'
             })
-        ).toEqual(undefined)
+          ).toEqual({})
       
       })
 
@@ -124,7 +124,7 @@ describe('moving reducer', () =>
               type: 'MOVE_STOP',
               status: 'success'
             })
-        ).toEqual(undefined)
+          ).toEqual({})
         
         expect(
             moving({
@@ -134,7 +134,7 @@ describe('moving reducer', () =>
               type: 'MOVE_STOP',
               status: 'success'
             })
-        ).toEqual(undefined)
+          ).toEqual({})
       
       })
     
