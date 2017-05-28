@@ -1,11 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { removeItem } from '../actions'
-import Item from '../components/Item'
+import { removeCard } from '../actions'
+import Card from '../components/Card'
 
 const mapStateToProps = (state, ownProps) =>
 { 
-  const item = state.items.find( (i) =>
+  const item = state.cards.find( (i) =>
     i.id === ownProps.id
   )
 
@@ -23,13 +23,13 @@ const mapDispatchToProps = (dispatch, ownProps) =>
         return
       }
 
-      dispatch(removeItem(ownProps.listId, ownProps.id))
+      dispatch(removeCard(ownProps.listId, ownProps.id))
     }
 })
 
-const ChangableItem = connect(
+const ChangableCard = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Item)
+)(Card)
 
-export default ChangableItem
+export default ChangableCard

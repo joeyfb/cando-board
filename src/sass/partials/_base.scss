@@ -106,7 +106,7 @@ section.board-list
     white-space: normal;
 }
 
-ul.item-list
+ul.card-list
 {
     padding: 0;
     list-style: none;
@@ -203,7 +203,7 @@ header.board-title h3
 }
 
 // card
-div.card-item
+div.card
 {
 	margin-bottom: 10px;
 
@@ -213,14 +213,14 @@ div.card-item
 		font-weight: 300;
 	}
 
-	&.active > div.inner-item,
-	&:hover > div.inner-item
+	&.active > div.inner-card,
+	&:hover > div.inner-card
 	{
 		display: block;
 	}
 }
 
-div.inner-item
+div.inner-card
 {
 	display: none;
 
@@ -276,7 +276,7 @@ button
   }
 }
 
-.card-item h4,
+.card h4,
 section.board-list h3
 {
   .delete-button

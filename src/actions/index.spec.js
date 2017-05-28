@@ -5,9 +5,9 @@ const zeroIds = (obj) =>
 
   obj['id'] = 0
 
-  if (obj['items'])
+  if (obj['cards'])
   {
-    obj['items'] = obj.items.map( (i) =>
+    obj['cards'] = obj.cards.map( (i) =>
         {
           i.id = 0
 
@@ -28,42 +28,42 @@ describe('list actions', () => {
         type: 'ADD_LIST',
         id: 0,
         title: 'To Do',
-        items: []
+        cards: []
       })
     
   })
 
-  it('addItem should create ADD_ITEM action', () => {
+  it('addCard should create ADD_CARD action', () => {
 
     expect(
        zeroIds( 
-        actions.addItem(
+        actions.addCard(
           0,
           'Cover untested case',
-          'for add item'
+          'for add card'
         )
       )
     ).toEqual({
-      type: 'ADD_ITEM',
+      type: 'ADD_CARD',
       id: 0,
-      items: [
+      cards: [
         {
           id: 0,
           title: 'Cover untested case',
-          description: 'for add item'
+          description: 'for add card'
         }
       ]
     })
 
   })
 
-  it('removeItem should create REMOVE_ITEM action', () => {
+  it('removeCard should create REMOVE_CARD action', () => {
 
-    expect(actions.removeItem(0,0)
+    expect(actions.removeCard(0,0)
     ).toEqual({
-      type: 'REMOVE_ITEM',
+      type: 'REMOVE_CARD',
       id: 0,
-      items: [
+      cards: [
         {
           id: 0
         }

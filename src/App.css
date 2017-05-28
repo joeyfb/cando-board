@@ -464,7 +464,7 @@ section.board-list {
   width: 275px;
   white-space: normal; }
 
-ul.item-list {
+ul.card-list {
   padding: 0;
   list-style: none; }
 
@@ -518,18 +518,18 @@ section.board-list + section.board-list {
 header.board-title h3 {
   margin-top: 26px; }
 
-div.card-item {
+div.card {
   margin-bottom: 10px; }
-  div.card-item h4 {
+  div.card h4 {
     margin: 0;
     font-weight: 300; }
-  div.card-item.active > div.inner-item,
-  div.card-item:hover > div.inner-item {
+  div.card.active > div.inner-card,
+  div.card:hover > div.inner-card {
     display: block; }
 
-div.inner-item {
+div.inner-card {
   display: none; }
-  div.inner-item p {
+  div.inner-card p {
     font-size: 0.7em;
     margin: 3px 0; }
 
@@ -560,15 +560,15 @@ button {
   .delete-button:hover, .delete-button {
     transition: color 0.25s ease-in-out; }
 
-.card-item h4 .delete-button,
+.card h4 .delete-button,
 section.board-list h3 .delete-button {
   color: #fff; }
 
-.card-item h4:hover > .delete-button,
+.card h4:hover > .delete-button,
 section.board-list h3:hover > .delete-button {
   color: #848484; }
 
-.card-item h4:hover > .delete-button:hover,
+.card h4:hover > .delete-button:hover,
 section.board-list h3:hover > .delete-button:hover {
   color: #f00; }
 

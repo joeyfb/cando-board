@@ -4,15 +4,15 @@ export const addList = (title) =>
 ({
     type: 'ADD_LIST',
     id: v4(),
-    items: [],
+    cards: [],
     title
 })
 
-export const addItem = (listId, title, description) =>
+export const addCard = (listId, title, description) =>
 ({
-  type: 'ADD_ITEM',
+  type: 'ADD_CARD',
   id: listId,
-  items: [
+  cards: [
             {
               id: v4(),
               title,
@@ -21,13 +21,13 @@ export const addItem = (listId, title, description) =>
   ]
 })
 
-export const removeItem = (listId, itemId) =>
+export const removeCard = (listId, cardId) =>
 ({
-  type: 'REMOVE_ITEM',
+  type: 'REMOVE_CARD',
   id: listId,
-  items: [
+  cards: [
     {
-      id: itemId
+      id: cardId
     }
   ]
 })

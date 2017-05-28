@@ -1,8 +1,8 @@
-const item = (state, action) =>
+const card = (state, action) =>
 {
   switch (action.type)
   {
-    case 'ADD_ITEM':
+    case 'ADD_CARD':
       return {
         title: action.title,
         id: action.id,
@@ -14,28 +14,28 @@ const item = (state, action) =>
   }
 }
 
-const items = (state = [], action) =>
+const cards = (state = [], action) =>
 {
   switch (action.type)
   {
-    case 'ADD_ITEM':
+    case 'ADD_CARD':
       return [
         ...state,
-        item(
+        card(
               undefined,
               {
                 type: action.type,
-                ...action.items[0]
+                ...action.cards[0]
               }
             )
       ]
 
-    case 'REMOVE_ITEM':
-      return state.filter(i => i.id !== action.items[0].id)
+    case 'REMOVE_CARD':
+      return state.filter(i => i.id !== action.cards[0].id)
 
     default:
       return state
   }
 }
 
-export default items
+export default cards

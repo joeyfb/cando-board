@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addItem } from '../actions'
+import { addCard } from '../actions'
 
 let AddItem = ({
   dispatch,
@@ -10,7 +10,7 @@ let AddItem = ({
     let input
 
     return (
-        <div className="form add-item">
+        <div className="form add-card">
             <form onSubmit={e => {
                             e.preventDefault()
 
@@ -19,7 +19,7 @@ let AddItem = ({
                                 return
                             }
 
-                            dispatch(addItem(listId, input.value))
+                            dispatch(addCard(listId, input.value))
 
                             input.value = ""
                        }}>

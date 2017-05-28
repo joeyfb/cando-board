@@ -1,7 +1,7 @@
 import React from 'react'
 import DeleteButton from './DeleteButton'
 
-const Item = ({
+const Card = ({
                 title,
                 description,
                 id,
@@ -11,7 +11,7 @@ const Item = ({
               }) =>
 (
      <li>
-         <div className="card-item"> 
+         <div className="card"> 
             <h4>
                 {title}
 
@@ -20,7 +20,7 @@ const Item = ({
                 />
             </h4>
 
-            <div className="inner-item">
+            <div className="inner-card">
                 <p className="description">
                     {description} 
                 </p>
@@ -33,4 +33,4 @@ const Item = ({
      </li>
 )
 
-export default Item
+export default Card

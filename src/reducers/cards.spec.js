@@ -1,43 +1,43 @@
-import items from './items'
+import cards from './cards'
 
-describe('items reducer', () =>
+describe('cards reducer', () =>
 {
   it('should handle initial state', () =>
   {
     expect(
-        items(undefined, {})
+        cards(undefined, {})
     ).toEqual([])
   })
 
 
-  it('should handle ADD_ITEM', () =>
+  it('should handle ADD_CARD', () =>
   {
     expect(
-        items([], {
-          type: 'ADD_ITEM',
-          items: [
+        cards([], {
+          type: 'ADD_CARD',
+          cards: [
             {
-              title: 'Add item reducer',
+              title: 'Add card reducer',
               id: 0,
               description: 'maybe tomorrow cause oh god I am sleepy'
             }
           ]
         })
     ).toEqual([{
-          title: 'Add item reducer',
+          title: 'Add card reducer',
           id: 0,
           description: 'maybe tomorrow cause oh god I am sleepy'
     }])
 
     expect(
-     items([{
-          title: 'Add item reducer',
+     cards([{
+          title: 'Add card reducer',
           id: 0,
           description: 'maybe tomorrow cause oh god I am sleepy'
         }],
         {
-          type: 'ADD_ITEM',
-          items: [
+          type: 'ADD_CARD',
+          cards: [
             {
               title: 'Sleep',
               id: 1,
@@ -46,7 +46,7 @@ describe('items reducer', () =>
           ]
       })).toEqual([
         {
-          title: 'Add item reducer',
+          title: 'Add card reducer',
           id: 0,
           description: 'maybe tomorrow cause oh god I am sleepy'
         },
@@ -58,8 +58,8 @@ describe('items reducer', () =>
     ])
     
     expect(
-     items([{
-          title: 'Add item reducer',
+     cards([{
+          title: 'Add card reducer',
           id: 0,
           description: 'maybe tomorrow cause oh god I am sleepy'
         },
@@ -69,8 +69,8 @@ describe('items reducer', () =>
           description: 'Perchance to dream...'
         }],
         {
-          type: 'ADD_ITEM',
-          items: [
+          type: 'ADD_CARD',
+          cards: [
             {
               title: 'Make coffee',
               id: 2,
@@ -79,7 +79,7 @@ describe('items reducer', () =>
           ]
       })).toEqual([
         {
-          title: 'Add item reducer',
+          title: 'Add card reducer',
           id: 0,
           description: 'maybe tomorrow cause oh god I am sleepy'
         },
@@ -96,16 +96,16 @@ describe('items reducer', () =>
     ])
   })
   
-  it('should handle REMOVE_ITEM', () =>
+  it('should handle REMOVE_CARD', () =>
   {
     expect(
-        items([{
-          title: 'Add item reducer',
+        cards([{
+          title: 'Add card reducer',
           id: 0,
           description: 'maybe tomorrow cause oh god I am sleepy'
       }], {
-          type: 'REMOVE_ITEM',
-          items: [
+          type: 'REMOVE_CARD',
+          cards: [
             {
               id: 0
             }
@@ -114,8 +114,8 @@ describe('items reducer', () =>
     ).toEqual([])
 
     expect(
-        items([{
-          title: 'Add item reducer',
+        cards([{
+          title: 'Add card reducer',
           id: 0,
           description: 'maybe tomorrow cause oh god I am sleepy'
       },
@@ -125,8 +125,8 @@ describe('items reducer', () =>
           description: 'Something I guess'
       }
         ], {
-          type: 'REMOVE_ITEM',
-          items: [
+          type: 'REMOVE_CARD',
+          cards: [
             {
               id: 0
             }

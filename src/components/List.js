@@ -1,12 +1,12 @@
 import React from 'react'
 import DeleteButton from './DeleteButton'
-import ChangableItem from '../containers/ChangableItem'
-import AddItem from '../containers/AddItem'
+import ChangableCard from '../containers/ChangableCard'
+import AddCard from '../containers/AddCard'
 
 const List = ({
                 title,
                 id,
-                items,
+                cards,
                 onClick
               }) =>
 (
@@ -21,9 +21,9 @@ const List = ({
             </h3>
         </header>
 
-        <ul className="item-list">
-            {items.map(iId =>
-                <ChangableItem
+        <ul className="card-list">
+            {cards.map(iId =>
+                <ChangableCard
                     key={iId}
                     id={iId}
                     listId={id}
@@ -31,7 +31,7 @@ const List = ({
             )}
 
             <li>
-                <AddItem 
+                <AddCard 
                   listId={id}
                 />
             </li>

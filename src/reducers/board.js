@@ -1,12 +1,12 @@
 import lists from './lists'
-import items from './items'
+import cards from './cards'
 
 const board = (state = {}, action) =>
 ({
   title: state.title,
   id: state.id,
   lists: lists(state.lists, action),
-  items: items(state.items, action)
+  cards: cards(state.cards, action)
 })
 
 export default board

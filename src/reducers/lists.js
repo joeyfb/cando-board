@@ -1,6 +1,6 @@
 const list = (state, action) =>
 {
-    const ids = action.items.map((i) => i.id)
+    const ids = action.cards.map((i) => i.id)
 
     switch (action.type)
     {
@@ -8,10 +8,10 @@ const list = (state, action) =>
             return {
                 title: action.title,
                 id: action.id,
-                items: []
+                cards: []
             }
 
-        case 'ADD_ITEM':
+        case 'ADD_CARD':
             if (state.id !== action.id)
             {
               return state
@@ -19,10 +19,10 @@ const list = (state, action) =>
 
             return {
                 ...state,
-                items: state.items.concat( ids )
+                cards: state.cards.concat( ids )
             }
 
-        case 'REMOVE_ITEM':
+        case 'REMOVE_CARD':
             
             if (state.id !== action.id)
             {
@@ -31,7 +31,7 @@ const list = (state, action) =>
             
             return {
                 ...state,
-                items: state.items.filter( (id) =>
+                cards: state.cards.filter( (id) =>
                     ids.indexOf(id) === -1
                 )
             }
@@ -54,8 +54,8 @@ const lists = (state = [], action) =>
         case 'REMOVE_LIST':
             return state.filter(l => l.id !== action.id)
 
-        case 'ADD_ITEM':
-        case 'REMOVE_ITEM':
+        case 'ADD_CARD':
+        case 'REMOVE_CARD':
             return state.map(l =>
                 list(l, action)
               )

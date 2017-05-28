@@ -13,11 +13,11 @@ describe('lists reducer', () => {
             lists([], {
                 type: 'ADD_LIST',
                 title: 'Done',
-                items: []
+                cards: []
             })).toEqual([
                 {
                     title: 'Done',
-                    items: []
+                    cards: []
                 }
             ])
 
@@ -25,23 +25,23 @@ describe('lists reducer', () => {
          lists([{
                 title: 'Done',
                 id: 0,
-                items: []
+                cards: []
             }],
             {
                 type: 'ADD_LIST',
                 title: 'Later',
                 id: 1,
-                items: []
+                cards: []
           })).toEqual([
             {
                 title: 'Done',
                 id: 0,
-                items: []
+                cards: []
             },
             {
                 title: 'Later',
                 id: 1,
-                items: []
+                cards: []
             }
           ])
 
@@ -49,49 +49,49 @@ describe('lists reducer', () => {
          lists([{
                 title: 'Done',
                 id: 0,
-                items: []
+                cards: []
             },
             {
                 title: 'Later',
                 id: 1,
-                items: []
+                cards: []
             }],
             {
                 type: 'ADD_LIST',
                 title: 'Never ever',
                 id: 2,
-                items: []
+                cards: []
           })).toEqual([
             {
                 title: 'Done',
                 id: 0,
-                items: []
+                cards: []
             },
             {
                 title: 'Later',
                 id: 1,
-                items: []
+                cards: []
             },
             {
                 title: 'Never ever',
                 id: 2,
-                items: []
+                cards: []
             }
           ])
     })
 
-  it('should handle ADD_ITEM', () =>
+  it('should handle ADD_CARD', () =>
     {
         expect(
          lists([{
                 title: 'Done',
                 id: 0,
-                items: []
+                cards: []
             }],
             {
-                type: 'ADD_ITEM',
+                type: 'ADD_CARD',
                 id: 0,
-                items: [
+                cards: [
                   {
                     id: 0
                   }
@@ -100,7 +100,7 @@ describe('lists reducer', () => {
             {
                 title: 'Done',
                 id: 0,
-                items: [
+                cards: [
                     0
                 ]
             }
@@ -110,14 +110,14 @@ describe('lists reducer', () => {
          lists([{
                 title: 'Done',
                 id: 0,
-                items: [
+                cards: [
                     0
                 ]
             }],
             {
-                type: 'ADD_ITEM',
+                type: 'ADD_CARD',
                 id: 0,
-                items: [
+                cards: [
                   {
                     id: 1
                   }
@@ -126,7 +126,7 @@ describe('lists reducer', () => {
             {
                 title: 'Done',
                 id: 0,
-                items: [
+                cards: [
                     0,
                     1
                 ]
@@ -137,20 +137,20 @@ describe('lists reducer', () => {
          lists([{
                 title: 'Doing',
                 id: 0,
-                items: [
+                cards: [
                     0
                 ]
             },
             {
                 title: 'Done',
                 id: 1,
-                items: []
+                cards: []
             }
            ],
             {
-                type: 'ADD_ITEM',
+                type: 'ADD_CARD',
                 id: 1,
-                items: [
+                cards: [
                   {
                     id: 0
                   }
@@ -159,34 +159,34 @@ describe('lists reducer', () => {
             {
                 title: 'Doing',
                 id: 0,
-                items: [
+                cards: [
                     0
                 ]
             },
             {
                 title: 'Done',
                 id: 1,
-                items: [
+                cards: [
                     0
                 ]
             }
           ])
     })
   
-  it('should handle REMOVE_ITEM', () =>
+  it('should handle REMOVE_CARD', () =>
     {
         expect(
          lists([{
                 title: 'Done',
                 id: 0,
-                items: [
+                cards: [
                     0
                 ]
             }],
             {
-                type: 'REMOVE_ITEM',
+                type: 'REMOVE_CARD',
                 id: 0,
-                items: [
+                cards: [
                   {
                     id: 0
                   }
@@ -195,7 +195,7 @@ describe('lists reducer', () => {
             {
                 title: 'Done',
                 id: 0,
-                items: []
+                cards: []
             }
           ])
         
@@ -203,7 +203,7 @@ describe('lists reducer', () => {
          lists([{
                 title: 'Doing',
                 id: 0,
-                items: [
+                cards: [
                     0,
                     1
                 ]
@@ -211,13 +211,13 @@ describe('lists reducer', () => {
             {
                 id: 1,
                 title: 'Done',
-                items: []
+                cards: []
             }
            ],
             {
-                type: 'REMOVE_ITEM',
+                type: 'REMOVE_CARD',
                 id: 0,
-                items: [
+                cards: [
                   {
                     id: 1
                   }
@@ -226,14 +226,14 @@ describe('lists reducer', () => {
             {
                 title: 'Doing',
                 id: 0,
-                items: [
+                cards: [
                     0
                 ]
             },
             {
                 title: 'Done',
                 id: 1,
-                items: []
+                cards: []
             }
           ])
     })
@@ -258,7 +258,7 @@ describe('lists reducer', () => {
           {
             id: 0,
             title: 'In',
-                items: [
+                cards: [
                     0
                 ]
           },
@@ -275,7 +275,7 @@ describe('lists reducer', () => {
           {
             id: 0,
             title: 'In',
-                items: [
+                cards: [
                     0
                 ]
           }

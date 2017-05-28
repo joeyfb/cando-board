@@ -6,16 +6,16 @@ const data = {
     {
       title: "To do",
       id: 'a',
-      items: ['a', 'b']
+      cards: ['a', 'b']
   },
   {
       title: "Doing",
       id: 'b',
-      items: ['c']
+      cards: ['c']
     }
   ],
 
-  items: [
+  cards: [
       {
         title: "make containers",
         id: 'a',
@@ -30,7 +30,9 @@ const data = {
         description: "I have no clue what I meant when I wrote pure",
         created: "May 15th, 2017"
       }
-  ]
+  ],
+
+  dragging: null
 }
 
 export default data
