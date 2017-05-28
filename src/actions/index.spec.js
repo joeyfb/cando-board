@@ -82,4 +82,57 @@ describe('list actions', () => {
 
   })
 
+  it('moveStart should create MOVE_START action', () => {
+
+    expect(actions.moveStart(1, 2)
+    ).toEqual({
+      type: 'MOVE_START',
+      lists: [
+        {
+          id: 1,
+          cards: [2]
+        }
+      ]
+    })
+
+    expect(actions.moveStart(1)
+    ).toEqual({
+      type: 'MOVE_START',
+      lists: [
+        {
+          id: 1
+        }
+      ]
+    })
+
+  })
+
+  it('moveStop should create MOVE_STOP action', () => {
+
+    expect(actions.moveStop()
+    ).toEqual({
+      type: 'MOVE_STOP',
+      status: 'fail'
+    })
+
+    expect(actions.moveStop(1,2)
+    ).toEqual({
+      type: 'MOVE_STOP',
+      pos: 1,
+      status: 'success',
+      lists: [
+        {
+          id: 2
+        }
+      ]
+    })
+
+    expect(actions.moveStop(0)
+    ).toEqual({
+      type: 'MOVE_STOP',
+      status: 'success',
+      pos: 0
+    })
+  })
+
 })

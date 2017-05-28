@@ -37,3 +37,43 @@ export const removeList = (id) =>
   type: 'REMOVE_LIST',
   id
 })
+
+export const moveStart = (listId, cardId) =>
+{
+  let list = {
+    id: listId
+  }
+
+  if (cardId)
+  {
+    list.cards = [ cardId ]
+  }
+
+  return {
+    type: 'MOVE_START',
+    lists: [ list ]
+  }
+}
+
+export const moveStop = (pos, listId) =>
+{
+  let move = {  
+      type: 'MOVE_STOP',
+  }
+
+  if ( pos === undefined )
+  {
+    move.status = 'fail'
+    return move
+  }
+
+  move.status = 'success'
+  move.pos = pos
+
+  if (listId)
+  {
+    move.lists = [ { id: listId } ]
+  }
+
+  return  move
+}
