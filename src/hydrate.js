@@ -32,7 +32,8 @@ const data = {
       }
   ],
 
-  dragging: null
+  moving: undefined
+
 }
 
 export default data
