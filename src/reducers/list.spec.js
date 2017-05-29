@@ -102,15 +102,11 @@ describe('lists reducer', () =>
             type: 'MOVE_CARD',
             pos: 0,
             start: {
-              list: {
-                id: 'a',
-                cards: [ '1' ]
-              } 
+              id: 'a',
+              cards: [ '1' ]
             },
             stop: {
-              list: {
-                id: 'b'
-              }
+              id: 'b'
             }
           })
       ).toEqual([
@@ -143,15 +139,11 @@ describe('lists reducer', () =>
             type: 'MOVE_CARD',
             pos: 2,
             start: {
-              list: {
-                id: 'a',
-                cards: [ '2' ]
-              } 
+              id: 'a',
+              cards: [ '2' ]
             },
             stop: {
-              list: {
-                id: 'b'
-              }
+              id: 'b'
             }
           })
       ).toEqual([
@@ -189,15 +181,11 @@ describe('lists reducer', () =>
             type: 'MOVE_CARD',
             pos: 3,
             start: {
-              list: {
-                id: 'b',
-                cards: [ '9' ]
-              } 
+              id: 'b',
+              cards: [ '9' ]
             },
             stop: {
-              list: {
-                id: 'c'
-              }
+              id: 'c'
             }
           })
       ).toEqual([

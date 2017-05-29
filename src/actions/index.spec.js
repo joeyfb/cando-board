@@ -135,4 +135,22 @@ describe('list actions', () => {
     })
   })
 
+  it('moveCard should create MOVE_CARD action', () =>
+    {
+      
+      expect(actions.moveCard(0, 1, [2], 2)
+      ).toEqual({
+        type: 'MOVE_CARD',
+        pos: 0,
+        start: {
+          id: 1,
+          cards: [ 2 ]
+        },
+        stop: {
+          id: 2
+        }
+      })
+
+    })
+
 })

@@ -77,3 +77,26 @@ export const moveStop = (pos, listId) =>
 
   return  move
 }
+
+export const moveCard = (pos, startList, startCards, stopId) =>
+{
+  let start = {
+    id: startList
+  }
+
+  let stop = {
+    id: stopId
+  }
+
+  if (startCards !== undefined)
+  {
+    start.cards = startCards
+  }
+
+  return {
+    type: 'MOVE_CARD',
+    pos,
+    start,
+    stop
+  }
+}

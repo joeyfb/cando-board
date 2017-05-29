@@ -1,7 +1,7 @@
 const move = (state, action) =>
 {
-    const start = action.start.list
-    const stop = action.stop.list
+    const start = action.start
+    const stop = action.stop
     let cards = state.cards
 
     switch (state.id)
