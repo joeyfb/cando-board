@@ -82,6 +82,144 @@ describe('lists reducer', () =>
           ])
     })
 
+  it('should handle MOVE_CARD', () =>
+    {
+
+      expect(
+          lists([
+            {
+              title: 'home',
+              id: 'a',
+              cards: [ '1', '2' ]
+            },
+            {
+              title: 'work',
+              id: 'b',
+              cards: [ '5', '9' ]
+            }
+          ],
+          {
+            type: 'MOVE_CARD',
+            pos: 0,
+            start: {
+              list: {
+                id: 'a',
+                cards: [ '1' ]
+              } 
+            },
+            stop: {
+              list: {
+                id: 'b'
+              }
+            }
+          })
+      ).toEqual([
+          {
+            title: 'home',
+            id: 'a',
+            cards: [ '2' ]
+          },
+          {
+            title: 'work',
+            id: 'b',
+            cards: [ '1', '5', '9' ]
+          }
+      ])
+
+      expect(
+          lists([
+            {
+              title: 'home',
+              id: 'a',
+              cards: [ '1', '2' ]
+            },
+            {
+              title: 'work',
+              id: 'b',
+              cards: [ '5', '9' ]
+            }
+          ],
+          {
+            type: 'MOVE_CARD',
+            pos: 2,
+            start: {
+              list: {
+                id: 'a',
+                cards: [ '2' ]
+              } 
+            },
+            stop: {
+              list: {
+                id: 'b'
+              }
+            }
+          })
+      ).toEqual([
+          {
+            title: 'home',
+            id: 'a',
+            cards: [ '1' ]
+          },
+          {
+            title: 'work',
+            id: 'b',
+            cards: [ '5', '9', '2' ]
+          }
+      ])
+
+      expect(
+          lists([
+            {
+              title: 'home',
+              id: 'a',
+              cards: [ '1', '2' ]
+            },
+            {
+              title: 'work',
+              id: 'b',
+              cards: [ '5', '9', '8' ]
+            },
+            {
+              title: 'gym',
+              id: 'c',
+              cards: [ '11', '15', '19', '20', '50' ]
+            }
+          ],
+          {
+            type: 'MOVE_CARD',
+            pos: 3,
+            start: {
+              list: {
+                id: 'b',
+                cards: [ '9' ]
+              } 
+            },
+            stop: {
+              list: {
+                id: 'c'
+              }
+            }
+          })
+      ).toEqual([
+          {
+            title: 'home',
+            id: 'a',
+            cards: [ '1', '2' ]
+          },
+          {
+            title: 'work',
+            id: 'b',
+            cards: [ '5', '8' ]
+          },
+          {
+            title: 'gym',
+            id: 'c',
+            cards: [ '11', '15', '19', '9', '20', '50' ]
+          }
+      ])
+
+    })
+
   it('should handle ADD_CARD', () =>
     {
         expect(

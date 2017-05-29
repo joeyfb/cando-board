@@ -9,7 +9,6 @@ describe('cards reducer', () =>
     ).toEqual([])
   })
 
-
   it('should handle ADD_CARD', () =>
   {
     expect(
