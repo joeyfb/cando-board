@@ -2,7 +2,7 @@ const move = (state, action) =>
 {
     const start = action.start
     const stop = action.stop
-    let cards = state.cards
+    let cards = state.cards.concat()
 
     switch (state.id)
     {

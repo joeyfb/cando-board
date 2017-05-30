@@ -12,6 +12,7 @@ const store = createStore(reducer, preload)
 
 const select = (state) =>
 {
+  console.log(state)
   return state.moving
 }
 

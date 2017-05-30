@@ -536,7 +536,8 @@ div.inner-card {
 /**
 * Interactions
 */
-.card {
+.card,
+.board-list {
   -ms-user-select: none;
   -khtml-user-select: none;
   -webkit-user-select: none;
