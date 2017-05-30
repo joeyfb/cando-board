@@ -3,18 +3,18 @@ const data = {
   board: {
     title: "Stateful title!",
     id: 0,
-    lists: [ 'a', 'b' ]
+    lists: [ 'aa', 'bb' ]
   },
 
   lists: [
     {
       title: "To do",
-      id: 'a',
+      id: 'aa',
       cards: ['a', 'b']
   },
   {
       title: "Doing",
-      id: 'b',
+      id: 'bb',
       cards: ['c']
     }
   ],

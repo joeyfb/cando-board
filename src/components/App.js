@@ -4,7 +4,11 @@ import Header from './Header'
 import Nav from './Nav'
 
 const App = () => (
-  <div>
+  <div
+    onDragExit={ () => {
+      console.log('board mouse up')
+    }} 
+  >
     <Header />
     <Nav />
 

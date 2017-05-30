@@ -2,8 +2,18 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Board from '../components/Board'
 
+const mapStateToProps = (state, ownProps) => state.board;
+
+const mapDispatchToProps = (dispatch, ownProps) =>
+({
+  onMouseUp: () => {
+    console.log('in board mouseup')
+  }
+})
+
 const StateBoard = connect(
-    (state) => ( state.board )
+  mapStateToProps,
+  mapDispatchToProps
 )(Board)
 
 export default StateBoard 

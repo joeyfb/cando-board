@@ -4,11 +4,13 @@ import ChangableCard from '../containers/ChangableCard'
 import AddCard from '../containers/AddCard'
 
 const List = ({
-                title,
-                id,
-                cards,
-                onClick
-              }) =>
+  title,
+  id,
+  cards,
+  onClick,
+  moving,
+  onMouseUp
+}) =>
 (
     <section className="board-list">
         <header className="board-header">
@@ -21,7 +23,10 @@ const List = ({
             </h3>
         </header>
 
-        <ul className="card-list">
+        <ul
+          onMouseUp={() => onMouseUp(moving)}
+          className="card-list"
+        >
             {cards.map(iId =>
                 <ChangableCard
                     key={iId}

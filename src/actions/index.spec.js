@@ -135,6 +135,15 @@ describe('list actions', () => {
     })
   })
 
+  it('moveClear should create MOVE_CLEAR action', () => {
+
+    expect(actions.moveClear()
+    ).toEqual({
+      type: 'MOVE_CLEAR'
+    })
+
+  })
+
   it('moveCard should create MOVE_CARD action', () =>
     {
       

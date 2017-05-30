@@ -1,19 +1,38 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { removeList } from '../actions'
+import { removeList, moveClear, moveStop, moveCard } from '../actions'
 import List from '../components/List'
 
 const mapStateToProps = (state, ownProps) =>
 {
-  const list = state.lists.find( (l) =>
+  let list = state.lists.find( (l) =>
       l.id === ownProps.id
   )
 
-  return list
+  return {
+    ...list,
+    moving: state.moving
+  }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) =>
 ({
+  onMouseUp: (moving) =>
+  {
+    const pos = moving.pos
+    const startList = moving.lists[0]
+    const startCards = startList.cards
+    const stopId = ownProps.id
+    
+    if (startList.id === stopId)
+    {
+      dispatch(moveStop(0, stopId))
+      return
+    }
+
+    dispatch(moveCard(0, startList.id, startCards, stopId))
+  },
+
   onClick: () =>
     {
       const message = 'This cannot be undone, are you sure?'

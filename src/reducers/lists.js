@@ -27,7 +27,7 @@ const move = (state, action) =>
     }
 }
 
-const cards = (state=[], action) =>
+const cards = (state = [], action) =>
 {
     const ids = action.cards.map((i) => i.id)
 

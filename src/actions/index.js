@@ -78,6 +78,11 @@ export const moveStop = (pos, listId) =>
   return  move
 }
 
+export const moveClear = () =>
+({
+  type: 'MOVE_CLEAR'
+})
+
 export const moveCard = (pos, startList, startCards, stopId) =>
 {
   let start = {

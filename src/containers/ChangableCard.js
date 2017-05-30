@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { removeCard } from '../actions'
+import { removeCard, moveStart } from '../actions'
 import Card from '../components/Card'
 
 const mapStateToProps = (state, ownProps) =>
@@ -14,6 +14,12 @@ const mapStateToProps = (state, ownProps) =>
 
 const mapDispatchToProps = (dispatch, ownProps) =>
 ({
+  onMouseDown: () =>
+  {
+      console.log("dragging", ownProps.listId, ownProps.id)
+      dispatch(moveStart(ownProps.listId, ownProps.id))
+  },
+
   onClick: () =>
     {
       const message = 'This cannot be undone, are you sure?'

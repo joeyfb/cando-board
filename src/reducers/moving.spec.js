@@ -77,9 +77,7 @@ describe('moving reducer', () =>
         
       })
     
-    it('should handle MOVE_STOP fail', () =>
-      {
-      
+    it('should handle MOVE_STOP', () => { 
         expect(
             moving({
               lists: [
@@ -90,9 +88,17 @@ describe('moving reducer', () =>
               ]
             }, {
               type: 'MOVE_STOP',
-              status: 'fail'
+              listId: 1 
             })
-          ).toEqual({})
+        ).toEqual({
+          lists: [
+            {
+              id: 4,
+              cards: [2]
+            }
+          ],
+          stop: { id: 1 }
+        })
         
         expect(
             moving({
@@ -103,39 +109,16 @@ describe('moving reducer', () =>
               ]
             }, {
               type: 'MOVE_STOP',
-              status: 'fail'
+              listId: 5
             })
-          ).toEqual({})
+        ).toEqual({
+          lists: [
+            {
+              id: 4
+            }
+          ],
+          stop: { id: 5 }
+        })
       
       })
-
-    it('should handle MOVE_STOP success', () =>
-      {
-      
-        expect(
-            moving({
-              lists: [
-                {
-                  id: 4,
-                  cards: [2]
-                }
-              ]
-            }, {
-              type: 'MOVE_STOP',
-              status: 'success'
-            })
-          ).toEqual({})
-        
-        expect(
-            moving({
-              id: 4,
-              prop: 'list'
-            }, {
-              type: 'MOVE_STOP',
-              status: 'success'
-            })
-          ).toEqual({})
-      
-      })
-    
   })

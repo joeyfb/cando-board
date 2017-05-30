@@ -7,11 +7,15 @@ const Card = ({
                 id,
                 created,
                 checklists,
-                onClick
+                onClick,
+                onMouseDown 
               }) =>
 (
      <li>
-         <div className="card"> 
+         <div
+           onMouseDown={onMouseDown}
+           className="card"
+          > 
             <h4>
                 {title}
 

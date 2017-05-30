@@ -8,6 +8,14 @@ const moving = (state = {}, action) =>
       }
 
     case 'MOVE_STOP':
+      return {
+        ...state,
+        stop: {
+          id: action.listId
+        }
+      }
+    
+    case 'MOVE_CLEAR':
       return  {}
 
     default:

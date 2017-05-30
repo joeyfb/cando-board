@@ -5,10 +5,13 @@ import AddList from '../containers/AddList.js'
 const Board = ({
                 title,
                 created,
-                lists
+                lists,
+                onMouseUp
                }) =>
 (
-    <article className="board">
+    <article
+      className="board"
+    >
         <header className="board-title">
             <h2>
                 {title}
