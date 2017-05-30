@@ -27,10 +27,10 @@ const List = ({
           onMouseUp={() => onMouseUp(moving)}
           className="card-list"
         >
-            {cards.map(iId =>
+            {cards.map( (cardId, i) =>
                 <ChangableCard
-                    key={iId}
-                    id={iId}
+                    key={cardId}
+                    id={cardId}
                     listId={id}
                 />
             )}

@@ -16,7 +16,6 @@ const mapDispatchToProps = (dispatch, ownProps) =>
 ({
   onMouseDown: () =>
   {
-      console.log("dragging", ownProps.listId, ownProps.id)
       dispatch(moveStart(ownProps.listId, ownProps.id))
   },
 

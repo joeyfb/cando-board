@@ -9,7 +9,7 @@ const move = (state, action) =>
       case start.id:
         return  {
               ...state,
-              cards : state.cards.filter( (id) => 
+              cards : cards.filter( (id) => 
                         start.cards.indexOf(id) === -1
                 )
         }
