@@ -4,13 +4,16 @@ import { addCard } from '../actions'
 
 let AddItem = ({
   dispatch,
-  listId
+  listId,
+  onMouseUp
 }) =>
 {
     let input
 
     return (
-        <div className="form add-card">
+        <div
+          onMouseUp={onMouseUp}
+          className="form add-card">
             <form onSubmit={e => {
                             e.preventDefault()
 

@@ -8,12 +8,14 @@ const Card = ({
                 created,
                 checklists,
                 onClick,
-                onMouseDown 
+                onMouseDown,
+                onMouseUp
               }) =>
 (
      <li>
          <div
            onMouseDown={onMouseDown}
+           onMouseUp={onMouseUp}
            className="card"
           > 
             <h4>

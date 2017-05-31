@@ -30,9 +30,7 @@ const data = {
       },
       {
         title: "pure",
-        id: 'c',
-        description: "I have no clue what I meant when I wrote pure",
-        created: "May 15th, 2017"
+        id: 'c'
       }
   ],
 

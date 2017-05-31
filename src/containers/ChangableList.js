@@ -11,26 +11,26 @@ const mapStateToProps = (state, ownProps) =>
 
   return {
     ...list,
-    moving: state.moving
+    start: state.moving
   };
 }
 
 const mapDispatchToProps = (dispatch, ownProps) =>
 ({
-  onMouseUp: (moving) =>
+  onMouseUp: (e, start, id, pos) =>
   {
-    if ( ! moving.lists || moving.lists[0].id === ownProps.id)
+    e.stopPropagation();
+    console.log(pos)
+    if ( ! start.lists || start.lists[0].id === id)
     {
       dispatch(moveClear());
       return;
     }
 
-    const pos = moving.pos;
-    const startList = moving.lists[0];
+    const startList = start.lists[0];
     const startCards = startList.cards;
-    const stopId = ownProps.id;
     
-    dispatch(moveCard(0, startList.id, startCards, stopId));
+    dispatch(moveCard(pos, startList.id, startCards, id));
     dispatch(moveClear());
   },
 

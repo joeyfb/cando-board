@@ -8,7 +8,7 @@ const List = ({
   id,
   cards,
   onClick,
-  moving,
+  start,
   onMouseUp
 }) =>
 (
@@ -24,19 +24,21 @@ const List = ({
         </header>
 
         <ul
-          onMouseUp={() => onMouseUp(moving)}
           className="card-list"
+          onMouseUp={(e) => onMouseUp(e, start, id)}
         >
-            {cards.map( (cardId, i) =>
+            {cards.map( (cardId, pos) =>
                 <ChangableCard
                     key={cardId}
                     id={cardId}
                     listId={id}
+                    onMouseUp={(e) => onMouseUp(e, start, id, pos)}
                 />
             )}
 
             <li>
                 <AddCard 
+                  onMouseUp={(e) => onMouseUp(e, start, id, 10000)}
                   listId={id}
                 />
             </li>
