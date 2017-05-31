@@ -1,7 +1,7 @@
-import React from 'react'
-import DeleteButton from './DeleteButton'
-import ChangableCard from '../containers/ChangableCard'
-import AddCard from '../containers/AddCard'
+import React from 'react';
+import DeleteButton from './DeleteButton';
+import ChangableCard from '../containers/ChangableCard';
+import AddCard from '../containers/AddCard';
 
 const List = ({
   title,
@@ -13,7 +13,10 @@ const List = ({
 }) =>
 (
     <section className="board-list">
-        <header className="board-header">
+        <header 
+          onMouseUp={(e) => onMouseUp(e, start, id, 0)}
+          className="board-header"
+        >
             <h3>
               {title}
 
@@ -25,7 +28,6 @@ const List = ({
 
         <ul
           className="card-list"
-          onMouseUp={(e) => onMouseUp(e, start, id)}
         >
             {cards.map( (cardId, pos) =>
                 <ChangableCard
@@ -46,4 +48,4 @@ const List = ({
     </section>
 )
 
-export default List
+export default List;

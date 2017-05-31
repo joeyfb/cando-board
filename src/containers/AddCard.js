@@ -1,6 +1,6 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { addCard } from '../actions'
+import React from 'react';
+import { connect } from 'react-redux';
+import { addCard } from '../actions';
 
 let AddItem = ({
   dispatch,
@@ -8,7 +8,7 @@ let AddItem = ({
   onMouseUp
 }) =>
 {
-    let input
+    let input;
 
     return (
         <div

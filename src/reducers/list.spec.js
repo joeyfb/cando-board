@@ -206,6 +206,43 @@ describe('lists reducer', () =>
           }
       ])
 
+      expect(
+          lists([
+            {
+              title: 'work',
+              id: 'b',
+              cards: [ '5', '9', '8' ]
+            },
+            {
+              title: 'gym',
+              id: 'c',
+              cards: [ '11', '15', '19', '20', '50' ]
+            }
+          ],
+          {
+            type: 'MOVE_CARD',
+            pos: 1,
+            start: {
+              id: 'c',
+              cards: [ '20' ]
+            },
+            stop: {
+              id: 'c'
+            }
+          })
+      ).toEqual([
+          {
+            title: 'work',
+            id: 'b',
+            cards: [ '5', '9', '8' ]
+          },
+          {
+            title: 'gym',
+            id: 'c',
+            cards: [ '11', '20', '15', '19', '50' ]
+          }
+      ])
+
     })
 
   it('should handle ADD_CARD', () =>

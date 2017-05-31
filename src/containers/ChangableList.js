@@ -20,8 +20,8 @@ const mapDispatchToProps = (dispatch, ownProps) =>
   onMouseUp: (e, start, id, pos) =>
   {
     e.stopPropagation();
-    console.log(pos)
-    if ( ! start.lists || start.lists[0].id === id)
+
+    if ( ! start.lists )
     {
       dispatch(moveClear());
       return;
