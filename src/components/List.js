@@ -21,7 +21,7 @@ const List = ({
               {title}
 
               <DeleteButton
-                onClick={onClick}
+                onClick={() => onClick(cards)}
               />
             </h3>
         </header>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { removeList, moveClear, moveCard } from '../actions';
+import { removeList, moveClear, moveCard, removeCard } from '../actions';
 import List from '../components/List';
 
 const mapStateToProps = (state, ownProps) =>
@@ -34,7 +34,7 @@ const mapDispatchToProps = (dispatch, ownProps) =>
     dispatch(moveClear());
   },
 
-  onClick: () =>
+  onClick: (cards) =>
     {
       const message = 'This cannot be undone, are you sure?';
       
@@ -42,6 +42,8 @@ const mapDispatchToProps = (dispatch, ownProps) =>
       {
         return;
       }
+
+      cards.map( (id) => dispatch(removeCard(0, id)) );
 
       dispatch(removeList(ownProps.id));
     }

@@ -1,4 +1,4 @@
-const board = (state = {}, action) =>
+const board = (state = { title: "New board", id: 0, lists: [] }, action) =>
 {
   switch (action.type)
   {

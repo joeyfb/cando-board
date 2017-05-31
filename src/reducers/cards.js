@@ -7,10 +7,10 @@ const card = (state, action) =>
         title: action.title,
         id: action.id,
         description: action.description
-      }
+      };
 
     default:
-      return state
+      return state;
   }
 }
 
@@ -28,14 +28,14 @@ const cards = (state = [], action) =>
                 ...action.cards[0]
               }
             )
-      ]
+      ];
 
     case 'REMOVE_CARD':
-      return state.filter(i => i.id !== action.cards[0].id)
+      return state.filter(i => i.id !== action.cards[0].id);
 
     default:
-      return state
+      return state;
   }
 }
 
-export default cards
+export default cards;
