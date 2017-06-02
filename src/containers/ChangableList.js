@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import React from 'react';
 import { connect } from 'react-redux';
 import { removeList, moveClear, moveCard, removeCard } from '../actions';

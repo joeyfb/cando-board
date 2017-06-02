@@ -1,19 +1,22 @@
 import { createStore } from 'redux';
-import reducer from './reducers';
+import { throttle } from 'lodash'
 import { loadState, saveState } from './localStore';
+import reducer from './reducers';
 
 const configureStore = () =>
 {
+  const state = loadState();
+  delete state.moving;
+  
   const store = createStore(
       reducer, 
-      loadState()
+      state
   );
 
-  store.subscribe(() =>
+  store.subscribe(throttle(() =>
       {
-
         saveState(store.getState());
-      })
+      }, 1000))
 
   return store;
 };
