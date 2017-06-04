@@ -6,7 +6,11 @@ describe('board reducer', () =>
     {
       expect(
           board(undefined, {})
-      ).toEqual({})
+      ).toEqual({
+        title: "New board",
+        id: 0,
+        lists: []
+      })
 
     })
 

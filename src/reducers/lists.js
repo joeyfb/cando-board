@@ -52,6 +52,17 @@ const list = (state, action) =>
                 id: action.id,
                 cards: []
             };
+
+        case 'UPDATE_LIST':
+            if (state.id !== action.id)
+            {
+              return state;
+            }
+
+            return {
+              ...state,
+              title: action.title
+            };
         
         case 'MOVE_CARD':
             return move(state, action);
@@ -88,6 +99,7 @@ const lists = (state = [], action) =>
         
         case 'MOVE_CARD':
         case 'ADD_CARD':
+        case 'UPDATE_LIST':
         case 'REMOVE_CARD':
             return state.map( (l) => 
                   list(l, action)

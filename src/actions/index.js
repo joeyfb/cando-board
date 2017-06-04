@@ -1,4 +1,11 @@
-import { v4 } from 'node-uuid'
+import { v4 } from 'node-uuid';
+
+export const updateList = (id, title) =>
+({
+    type: 'UPDATE_LIST',
+    id,
+    title
+});
 
 export const addList = (title) =>
 ({
@@ -6,7 +13,7 @@ export const addList = (title) =>
     id: v4(),
     cards: [],
     title
-})
+});
 
 export const addCard = (listId, title, description) =>
 ({
@@ -19,7 +26,7 @@ export const addCard = (listId, title, description) =>
               description
             }
   ]
-})
+});
 
 export const removeCard = (listId, cardId) =>
 ({
@@ -30,72 +37,72 @@ export const removeCard = (listId, cardId) =>
       id: cardId
     }
   ]
-})
+});
 
 export const removeList = (id) =>
 ({
   type: 'REMOVE_LIST',
   id
-})
+});
 
 export const moveStart = (listId, cardId) =>
 {
   let list = {
     id: listId
-  }
+  };
 
   if (cardId)
   {
-    list.cards = [ cardId ]
+    list.cards = [ cardId ];
   }
 
   return {
     type: 'MOVE_START',
     lists: [ list ]
-  }
-}
+  };
+};
 
 export const moveStop = (pos, listId) =>
 {
   let move = {  
       type: 'MOVE_STOP',
-  }
+  };
 
   if ( pos === undefined )
   {
-    move.status = 'fail'
-    return move
+    move.status = 'fail';
+    return move;
   }
 
-  move.status = 'success'
-  move.pos = pos
+  move.status = 'success';
+  move.pos = pos;
 
   if (listId)
   {
-    move.lists = [ { id: listId } ]
+    move.lists = [ { id: listId } ];
   }
 
-  return  move
-}
+  return  move;
+};
 
 export const moveClear = () =>
 ({
   type: 'MOVE_CLEAR'
-})
+});
 
 export const moveCard = (pos, startList, startCards, stopId) =>
 {
   let start = {
     id: startList
-  }
+  };
 
   let stop = {
     id: stopId
-  }
+  };
 
   if (startCards !== undefined)
   {
-    start.cards = startCards
+    start.cards = startCards;
   }
 
   return {
@@ -103,5 +110,5 @@ export const moveCard = (pos, startList, startCards, stopId) =>
     pos,
     start,
     stop
-  }
-}
+  };
+};
