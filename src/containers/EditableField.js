@@ -9,14 +9,16 @@ const EditableField = ({
 {
   let input;
   const change = () =>
-  {  
-    if ( ! input.value.trim())
+  {
+    const val = input.value.trim();
+  
+    if ( ! val || val === text)
     {
       input.value = text;
       return;
     }
 
-    onsubmit(input.value);
+    onsubmit(val);
   }
 
   return (
@@ -32,7 +34,6 @@ const EditableField = ({
               return;
             }
             
-            change();
             input.blur();
           }}
       />
