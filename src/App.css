@@ -567,17 +567,26 @@ button {
   .delete-button:hover, .delete-button {
     transition: color 0.25s ease-in-out; }
 
-.card h4 .delete-button,
-section.board-list h3 .delete-button {
-  color: #fff; }
+.card h4,
+section.board-list h3 {
+  position: relative; }
+  .card h4 .delete-button,
+  section.board-list h3 .delete-button {
+    color: #fff;
+    position: absolute;
+    right: 5px;
+    top: 0; }
+  .card h4:hover > .delete-button,
+  section.board-list h3:hover > .delete-button {
+    color: #848484; }
+  .card h4:hover > .delete-button:hover,
+  section.board-list h3:hover > .delete-button:hover {
+    color: #f00; }
 
-.card h4:hover > .delete-button,
-section.board-list h3:hover > .delete-button {
-  color: #848484; }
-
-.card h4:hover > .delete-button:hover,
-section.board-list h3:hover > .delete-button:hover {
-  color: #f00; }
+.editable-field {
+  display: inline-block;
+  font-weight: inherit;
+  border: none; }
 
 @media screen and (max-width: 600px) {
   div.lists-wrapper {

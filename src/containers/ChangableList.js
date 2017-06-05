@@ -1,14 +1,14 @@
 // eslint-disable-next-line
 import React from 'react';
 import { connect } from 'react-redux';
-import { removeList, moveClear, moveCard, removeCard } from '../actions';
+import { removeList, moveClear, moveCard, removeCard, updateList } from '../actions';
 import List from '../components/List';
 
 const mapStateToProps = (state, ownProps) =>
 {
   let list = state.lists.find( (l) =>
       l.id === ownProps.id
-  );
+      );
 
   return {
     ...list,
@@ -29,25 +29,29 @@ const mapDispatchToProps = (dispatch, ownProps) =>
     }
 
     const startList = start.lists[0];
-    const startCards = startList.cards;
-    
-    dispatch(moveCard(pos, startList.id, startCards, id));
+
+    dispatch(moveCard(pos, startList.id, startList.cards, id));
     dispatch(moveClear());
   },
 
-  onClick: (cards) =>
+  onDeleteClick: (cards) =>
+  {
+    const message = 'This cannot be undone, are you sure?';
+
+    if ( ! confirm(message) )
     {
-      const message = 'This cannot be undone, are you sure?';
-      
-      if ( ! confirm(message) )
-      {
-        return;
-      }
-
-      cards.map( (id) => dispatch(removeCard(0, id)) );
-
-      dispatch(removeList(ownProps.id));
+      return;
     }
+
+    cards.map( (id) => dispatch(removeCard(0, id)) );
+
+    dispatch(removeList(ownProps.id));
+  },
+
+  onEditTitle: (title) =>
+  {
+    dispatch(updateList(ownProps.id, title));
+  }
 })
 
 const ChangableList = connect(

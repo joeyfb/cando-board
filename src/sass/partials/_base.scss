@@ -288,9 +288,14 @@ button
 .card h4,
 section.board-list h3
 {
+  position: relative;
+
   .delete-button
   {
     color: $color-white;
+    position: absolute;
+    right: 5px;
+    top: 0;
   }
 
   &:hover > .delete-button
@@ -302,4 +307,12 @@ section.board-list h3
   {
     color: $color-red;
   }
+}
+
+// editable field
+.editable-field
+{
+  display: inline-block;
+  font-weight: inherit;
+  border: none;
 }

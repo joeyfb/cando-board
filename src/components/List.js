@@ -2,12 +2,14 @@ import React from 'react';
 import DeleteButton from './DeleteButton';
 import ChangableCard from '../containers/ChangableCard';
 import AddCard from '../containers/AddCard';
+import Field from '../containers/EditableField';
 
 const List = ({
   title,
   id,
   cards,
-  onClick,
+  onDeleteClick,
+  onEditTitle,
   start,
   onMouseUp
 }) =>
@@ -18,10 +20,13 @@ const List = ({
           className="board-header"
         >
             <h3>
-              {title}
+              <Field 
+                text={title}
+                onsubmit={onEditTitle}
+              />
 
               <DeleteButton
-                onClick={() => onClick(cards)}
+                onClick={() => onDeleteClick(cards)}
               />
             </h3>
         </header>
