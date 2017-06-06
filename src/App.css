@@ -583,6 +583,16 @@ section.board-list h3 {
   section.board-list h3:hover > .delete-button:hover {
     color: #f00; }
 
+input.editable-field,
+input.editable-field:focus {
+  box-shadow: none;
+  outline: none;
+  border-bottom: 1px solid #fff;
+  transition: border-bottom 0.2s ease-in-out; }
+
+input.editable-field:focus {
+  border-bottom: 1px solid #333; }
+
 .editable-field {
   display: inline-block;
   font-weight: inherit;

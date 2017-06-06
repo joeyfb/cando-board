@@ -309,6 +309,21 @@ section.board-list h3
   }
 }
 
+// inputs
+input.editable-field,
+input.editable-field:focus
+{
+  box-shadow: none;
+  outline: none;
+  border-bottom: 1px solid $color-white;
+  transition: border-bottom 0.2s ease-in-out;
+}
+
+input.editable-field:focus
+{
+  border-bottom: 1px solid $color-black;
+}
+
 // editable field
 .editable-field
 {

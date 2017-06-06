@@ -52,7 +52,7 @@ const mapDispatchToProps = (dispatch, ownProps) =>
   {
     dispatch(updateList(ownProps.id, title));
   }
-})
+});
 
 const ChangableList = connect(
   mapStateToProps,
