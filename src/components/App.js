@@ -1,19 +1,15 @@
-import React from 'react'
-import Board from '../containers/Board'
-import Header from './Header'
-import Nav from './Nav'
+import React from 'react';
+import Board from '../containers/Board';
+import Header from './Header';
+import Nav from './Nav';
 
 const App = () => (
-  <div
-    onDragExit={ () => {
-      console.log('board mouse up')
-    }} 
-  >
+  <div>
     <Header />
     <Nav />
 
     <Board />
   </div>
-)
+);
 
-export default App
+export default App;

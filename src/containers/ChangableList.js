@@ -1,8 +1,14 @@
 // eslint-disable-next-line
 import React from 'react';
 import { connect } from 'react-redux';
-import { removeList, moveClear, moveCard, removeCard, updateList } from '../actions';
 import List from '../components/List';
+import { 
+    removeList,
+    moveClear,
+    moveCard,
+    removeCard,
+    updateList
+  } from '../actions';
 
 const mapStateToProps = (state, ownProps) =>
 {

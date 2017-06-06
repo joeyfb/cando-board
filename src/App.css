@@ -448,6 +448,8 @@ footer.main {
 
 article.board {
   position: absolute;
+  top: 0;
+  bottom: 0;
   white-space: nowrap;
   overflow-x: scroll; }
 
@@ -519,7 +521,8 @@ header.board-title h3 {
   margin-top: 26px; }
 
 div.card {
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  cursor: pointer; }
   div.card h4 {
     margin: 0;
     font-weight: 300; }
@@ -597,6 +600,9 @@ input.editable-field:focus {
   display: inline-block;
   font-weight: inherit;
   border: none; }
+
+.board.moving {
+  cursor: move !important; }
 
 @media screen and (max-width: 600px) {
   div.lists-wrapper {

@@ -1,16 +1,22 @@
-import React from 'react'
-import ChangableList from '../containers/ChangableList'
-import AddList from '../containers/AddList.js'
+import React from 'react';
+import ChangableList from '../containers/ChangableList';
+import AddList from '../containers/AddList.js';
 
 const Board = ({
-                title,
-                created,
-                lists,
-                onMouseUp
-               }) =>
-(
+  title,
+  created,
+  lists,
+  moving,
+  onMouseUp
+}) =>
+{
+  const isMoving = moving.hasOwnProperty('lists');
+  const moveClass = (isMoving) ? ' moving ' : '';
+
+  return (
     <article
-      className="board"
+      className={'board' + moveClass}
+      onMouseUp={onMouseUp}
     >
         <header className="board-title">
             <h2>
@@ -41,6 +47,6 @@ const Board = ({
         </footer>
 
     </article>  
-)
-
-export default Board
+  );
+};
+export default Board;

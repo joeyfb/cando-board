@@ -9,6 +9,8 @@ $color-red: #f00;
 $font-fancy: 'Dosis', sans-serif;
 $font-plain: "Lato", sans-serif;
 
+$board-list-width: 275px;
+
 h1,
 h2,
 h3
@@ -79,13 +81,14 @@ footer.main
     display: inline-block;
     position: fixed;
     bottom: 0; left: 0;
-	background: $color-white;
+    background: $color-white;
 }
 
 // board
 article.board
 {
     position: absolute;
+    top: 0; bottom: 0;
     white-space: nowrap;
     overflow-x: scroll;
 }
@@ -102,7 +105,7 @@ section.board-list
     display: inline-block;
     vertical-align: top;
 
-    width: 275px;
+    width: $board-list-width;
     white-space: normal;
 }
 
@@ -206,6 +209,7 @@ header.board-title h3
 div.card
 {
 	margin-bottom: 10px;
+  cursor: pointer;
 
 	h4
 	{
@@ -330,4 +334,9 @@ input.editable-field:focus
   display: inline-block;
   font-weight: inherit;
   border: none;
+}
+
+.board.moving 
+{
+  cursor: move !important;
 }
