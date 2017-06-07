@@ -1,17 +1,30 @@
 // eslint-disable-next-line
-import React from 'react'
-import { connect } from 'react-redux'
-import { removeCard, moveStart } from '../actions'
-import Card from '../components/Card'
+import React from 'react';
+import { connect } from 'react-redux';
+import { removeCard, moveStart } from '../actions';
+import Card from '../components/Card';
+
+const isMoving = (moving, id) =>
+{
+  const list = moving.hasOwnProperty('lists')
+               ? moving.lists[0]
+               : false;
+  const cardId = list ? list.cards[0] : false;
+
+  return cardId && cardId === id;
+};
 
 const mapStateToProps = (state, ownProps) =>
 { 
-  const item = state.cards.find( (i) =>
+  const card = state.cards.find( (i) =>
     i.id === ownProps.id
-  )
+  );
 
-  return item
-}
+  return {
+    ...card,
+    isMoving: isMoving(state.moving, ownProps.id)
+  };
+};
 
 const mapDispatchToProps = (dispatch, ownProps) =>
 ({
@@ -22,20 +35,20 @@ const mapDispatchToProps = (dispatch, ownProps) =>
 
   onClick: () =>
     {
-      const message = 'This cannot be undone, are you sure?'
+      const message = 'This cannot be undone, are you sure?';
       
       if ( ! confirm(message) )
       {
-        return
+        return;
       }
 
-      dispatch(removeCard(ownProps.listId, ownProps.id))
+      dispatch(removeCard(ownProps.listId, ownProps.id));
     }
 })
 
 const ChangableCard = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Card)
+)(Card);
 
-export default ChangableCard
+export default ChangableCard;

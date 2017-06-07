@@ -575,7 +575,7 @@ section.board-list h3 {
   position: relative; }
   .card h4 .delete-button,
   section.board-list h3 .delete-button {
-    color: #fff;
+    color: rgba(255, 255, 255, 0);
     position: absolute;
     right: 5px;
     top: 0; }
@@ -603,6 +603,17 @@ input.editable-field:focus {
 
 .board.moving {
   cursor: move !important; }
+
+.card,
+.moving-card {
+  transition: color 0.2s ease-in-out, background 0.2s ease-in-out; }
+
+.moving-card {
+  border-radius: 0 0 0 5px;
+  color: #aaa;
+  background: #eee; }
+  .moving-card .delete-button {
+    display: none; }
 
 @media screen and (max-width: 600px) {
   div.lists-wrapper {

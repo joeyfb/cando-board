@@ -1,22 +1,26 @@
-import React from 'react'
-import DeleteButton from './DeleteButton'
+import React from 'react';
+import DeleteButton from './DeleteButton';
 
 const Card = ({
-                title,
-                description,
-                id,
-                created,
-                checklists,
-                onClick,
-                onMouseDown,
-                onMouseUp
-              }) =>
-(
+  title,
+  description,
+  id,
+  created,
+  checklists,
+  onClick,
+  onMouseDown,
+  onMouseUp,
+  isMoving
+}) =>
+{
+  let movingClass = (isMoving) ? ' moving-card ' : '';
+
+  return(
      <li>
          <div
            onMouseDown={onMouseDown}
            onMouseUp={onMouseUp}
-           className="card"
+           className={ 'card' + movingClass }
           > 
             <h4>
                 {title}
@@ -37,6 +41,7 @@ const Card = ({
             </div>
          </div>
      </li>
-)
+  );
+}
 
 export default Card
