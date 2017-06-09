@@ -44,7 +44,7 @@ const mapDispatchToProps = (dispatch, ownProps) =>
 
       dispatch(removeCard(ownProps.listId, ownProps.id));
     }
-})
+});
 
 const ChangableCard = connect(
   mapStateToProps,

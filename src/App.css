@@ -602,7 +602,7 @@ input.editable-field:focus {
   border: none; }
 
 .board.moving {
-  cursor: move !important; }
+  cursor: grabbing !important; }
 
 .card,
 .moving-card {

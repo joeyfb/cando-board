@@ -339,7 +339,7 @@ input.editable-field:focus
 
 .board.moving 
 {
-  cursor: move !important;
+  cursor: grabbing !important;
 }
 
 .card,

@@ -20,7 +20,7 @@ const Card = ({
          <div
            onMouseDown={onMouseDown}
            onMouseUp={onMouseUp}
-           className={ 'card' + movingClass }
+           className={'card' + movingClass}
           > 
             <h4>
                 {title}

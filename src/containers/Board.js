@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import Board from '../components/Board';
 import { moveClear } from '../actions';
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state, ownProps) =>
+({
   ...state.board,
   moving: state.moving
 });
