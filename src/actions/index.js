@@ -112,3 +112,15 @@ export const moveCard = (pos, startList, startCards, stopId) =>
     stop
   };
 };
+
+// compound actions
+export const removeEntity = (listId, cardId) =>
+{
+  if (cardId !== undefined)
+  {
+    return removeCard(listId, cardId);
+  }
+
+  return removeList(listId);
+};
+

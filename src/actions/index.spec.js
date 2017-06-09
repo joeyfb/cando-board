@@ -18,7 +18,37 @@ const zeroIds = (obj) =>
   return obj;
 };
 
-describe('list actions', () => {
+describe('entity actions', () =>
+  {
+    
+    it('removeEntity should create REMOVE_LIST action', () =>
+        {
+          expect(
+              actions.removeEntity(1)
+            ).toEqual({
+              type: 'REMOVE_LIST',
+              id: 1
+          });
+        });
+    
+    it('removeEntity should create REMOVE_CARD action', () =>
+        {
+          expect(
+              actions.removeEntity('a', 'b')
+            ).toEqual({
+              type: 'REMOVE_CARD',
+              id: 'a',
+              cards: [
+                {
+                  id: 'b'
+                }
+              ]
+          });
+        });
+  });
+
+describe('list actions', () =>
+  {
 
   it('updateList should create UPDATE_LIST action', ()=>
       {
