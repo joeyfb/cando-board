@@ -1,5 +1,5 @@
 import React from 'react';
-import DeleteButton from './DeleteButton';
+import EntityDelete from '../containers/EntityDelete';
 
 const Card = ({
   title,
@@ -7,7 +7,6 @@ const Card = ({
   id,
   created,
   checklists,
-  onClick,
   onMouseDown,
   onMouseUp,
   isMoving
@@ -18,15 +17,18 @@ const Card = ({
   return(
      <li>
          <div
-           onMouseDown={onMouseDown}
-           onMouseUp={onMouseUp}
            className={'card' + movingClass}
           > 
             <h4>
-                {title}
+                <span
+                 onMouseDown={onMouseDown}
+                 onMouseUp={onMouseUp}
+                >
+                  {title}
+                </span>
 
-                <DeleteButton
-                  onClick={onClick}
+                <EntityDelete
+                  cardId={id}
                 />
             </h4>
 

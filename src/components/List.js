@@ -1,5 +1,5 @@
 import React from 'react';
-import DeleteButton from './DeleteButton';
+import EntityDelete from '../containers/EntityDelete';
 import ChangableCard from '../containers/ChangableCard';
 import AddCard from '../containers/AddCard';
 import Field from '../containers/EditableField';
@@ -8,7 +8,6 @@ const List = ({
   title,
   id,
   cards,
-  onDeleteClick,
   onEditTitle,
   start,
   onMouseUp
@@ -25,8 +24,9 @@ const List = ({
                 onsubmit={onEditTitle}
               />
 
-              <DeleteButton
-                onClick={() => onDeleteClick(cards)}
+              <EntityDelete
+                listId={id}
+                cards={cards} 
               />
             </h3>
         </header>

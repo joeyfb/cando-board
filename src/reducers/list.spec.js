@@ -423,7 +423,6 @@ describe('lists reducer', () =>
                 }],
                 {
                   type: 'REMOVE_CARD',
-                  id: 0,
                   cards: [
                   {
                     id: 0

@@ -34,10 +34,9 @@ describe('entity actions', () =>
     it('removeEntity should create REMOVE_CARD action', () =>
         {
           expect(
-              actions.removeEntity('a', 'b')
+              actions.removeEntity(undefined, 'b')
             ).toEqual({
               type: 'REMOVE_CARD',
-              id: 'a',
               cards: [
                 {
                   id: 'b'
@@ -102,10 +101,9 @@ describe('list actions', () =>
 
   it('removeCard should create REMOVE_CARD action', () => {
 
-    expect(actions.removeCard(0,0)
+    expect(actions.removeCard(0)
         ).toEqual({
       type: 'REMOVE_CARD',
-      id: 0,
       cards: [
       {
         id: 0

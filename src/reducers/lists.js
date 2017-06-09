@@ -66,9 +66,14 @@ const list = (state, action) =>
         
         case 'MOVE_CARD':
             return move(state, action);
+        
+        case 'REMOVE_CARD':
+            return {
+                ...state,
+                cards: cards(state.cards, action)
+            };
 
         case 'ADD_CARD':
-        case 'REMOVE_CARD':
             if (state.id !== action.id)
             {
                 return state;

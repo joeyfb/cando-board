@@ -31,19 +31,7 @@ const mapDispatchToProps = (dispatch, ownProps) =>
   onMouseDown: () =>
   {
       dispatch(moveStart(ownProps.listId, ownProps.id))
-  },
-
-  onClick: () =>
-    {
-      const message = 'This cannot be undone, are you sure?';
-      
-      if ( ! confirm(message) )
-      {
-        return;
-      }
-
-      dispatch(removeCard(ownProps.listId, ownProps.id));
-    }
+  }
 });
 
 const ChangableCard = connect(

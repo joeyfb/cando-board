@@ -3,10 +3,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import List from '../components/List';
 import { 
-    removeList,
     moveClear,
     moveCard,
-    removeCard,
     updateList
   } from '../actions';
 
@@ -38,20 +36,6 @@ const mapDispatchToProps = (dispatch, ownProps) =>
 
     dispatch(moveCard(pos, startList.id, startList.cards, id));
     dispatch(moveClear());
-  },
-
-  onDeleteClick: (cards) =>
-  {
-    const message = 'This cannot be undone, are you sure?';
-
-    if ( ! confirm(message) )
-    {
-      return;
-    }
-
-    cards.map( (id) => dispatch(removeCard(0, id)) );
-
-    dispatch(removeList(ownProps.id));
   },
 
   onEditTitle: (title) =>

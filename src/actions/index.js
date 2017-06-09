@@ -28,10 +28,9 @@ export const addCard = (listId, title, description) =>
   ]
 });
 
-export const removeCard = (listId, cardId) =>
+export const removeCard = (cardId) =>
 ({
   type: 'REMOVE_CARD',
-  id: listId,
   cards: [
     {
       id: cardId
@@ -118,9 +117,11 @@ export const removeEntity = (listId, cardId) =>
 {
   if (cardId !== undefined)
   {
-    return removeCard(listId, cardId);
+    return removeCard(cardId);
   }
-
-  return removeList(listId);
+  else
+  {
+    return removeList(listId);
+  }
 };
 
