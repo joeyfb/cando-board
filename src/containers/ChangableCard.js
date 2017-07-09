@@ -1,7 +1,7 @@
 // eslint-disable-next-line
 import React from 'react';
 import { connect } from 'react-redux';
-import { removeCard, moveStart } from '../actions';
+import { moveStart } from '../actions';
 import Card from '../components/Card';
 
 const isMoving = (moving, id) =>

@@ -51,6 +51,6 @@ const List = ({
             </li>
         </ul>
     </section>
-)
+);
 
 export default List;

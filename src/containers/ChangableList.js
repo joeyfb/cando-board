@@ -10,9 +10,9 @@ import {
 
 const mapStateToProps = (state, ownProps) =>
 {
-  let list = state.lists.find( (l) =>
-      l.id === ownProps.id
-      );
+  const list = state.lists.find( (l) =>
+    l.id === ownProps.id
+  );
 
   return {
     ...list,

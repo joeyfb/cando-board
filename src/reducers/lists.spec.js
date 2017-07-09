@@ -3,12 +3,12 @@ import lists from './lists';
 describe('lists reducer', () =>
     {
 
-      it('should handle initial state', () => {
-        expect(
-            lists(undefined, {})
-            ).toEqual([]);
-
-      });
+      it('should handle initial state', () =>
+          {
+            expect(
+                lists(undefined, {})
+              ).toEqual([]);
+          });
 
       it('should handle UPDATE_LIST', () =>
           {
