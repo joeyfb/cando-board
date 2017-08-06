@@ -1,27 +1,48 @@
 import lists from './lists';
+import { compact, union } from 'lodash';
 
-const refs = (state = {}, action) =>
+const refs = (state = {}, action, id) =>
 {
-  const keys = Object.keys(state);
+  const stateKeys = Object.keys(state);
   let refs = {};
-
+  
   switch (action.type)
   {
     case 'REMOVE_ENTITY':
-      for(let key of keys)
+      for(let key of stateKeys)
       {
         refs[key] = state[key]
-                   .filter(i => i !== action.id);
+          .filter(id =>
+            {
+              const match = action.entities
+                            .map(e => e.id === id);
+              
+              return match.some(x => x !== true);
+            });
       }
 
       return refs;
 
     case 'UPDATE_ENTITY':
-      let update = action.update.refs;
-      for(let key of keys)
+      let e = action.entities.map(e => {
+        if (e.id === id)
+        {
+          return e;
+        }
+      });
+      
+      e = compact(e)[0];
+
+      for(let key of stateKeys)
       {
-        refs[key] = update[key]
-                      .concat(state[key]);
+        if (e && e.refs.hasOwnProperty(key))
+        {
+          refs[key] = union(e.refs[key], state[key]);
+        }
+        else
+        {
+          refs[key] = state[key];
+        }
       }
 
       return refs;
@@ -36,19 +57,23 @@ const entity = (state = {}, action) =>
   switch (action.type)
   {
     case 'REMOVE_ENTITY':
+      let match = action.entities.filter(e => e.id === state.id);
+
+      if (match.length > 0) return; 
+
       return {
         ...state,
-        refs: refs(state.refs, action)
+        refs: refs(state.refs, action, state.id)
       };
     
     case 'UPDATE_ENTITY':
-      if (state.id !== action.id)
-        return state;
-      
+      let id = state.id;
+      let update = action.entities[id];
+
       return {
         ...state,
-        ...action.update,
-        refs: refs(state.refs, action)
+        ...action.entities[id],
+        refs: refs(state.refs, action, id)
       };
 
     default:
@@ -58,16 +83,14 @@ const entity = (state = {}, action) =>
 
 const entities = (state = [], action) =>
 {
+
   switch (action.type)
   {
     case 'REMOVE_ENTITY':
-      state = state
-                .filter(e => e.id !== action.id)
-
-      return state.map(e => entity(e, action));
-    
     case 'UPDATE_ENTITY':
-      return state.map(e => entity(e, action));
+      let entities = state.map(e => entity(e, action));
+
+      return compact(entities);
 
     default:
       return state;

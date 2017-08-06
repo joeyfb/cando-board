@@ -17,13 +17,15 @@ describe('entities reducer', () =>
             object: 'card',
             id: 0,
             refs: {}
-
           }],
           {
             type: 'REMOVE_ENTITY',
-            id: 0,
-            refs: {}
-
+            entities: [
+              {
+                id: 0,
+                refs: {}
+              }
+            ]
           })
         ).toEqual([]);
           
@@ -52,9 +54,12 @@ describe('entities reducer', () =>
           }],
           {
             type: 'REMOVE_ENTITY',
-            id: 1,
-            refs: {}
-
+            entities: [
+              {
+                id: 1,
+                refs: {}
+              }
+            ]
           })
         ).toEqual([
           {
@@ -85,11 +90,13 @@ describe('entities reducer', () =>
           }],
           {
             type: 'UPDATE_ENTITY',
-            id: 0,
-            update: {
-              title: 'And so and so and so forth',
-            },
-            refs: {}
+            entities: [
+              {
+                id: 0,
+                title: 'And so and so and so forth',
+                refs: {}
+              }
+            ]
           })
         ).toEqual([{
             title: 'And so and so and so forth',
@@ -123,12 +130,14 @@ describe('entities reducer', () =>
           }],
           {
             type: 'UPDATE_ENTITY',
-            id: 0,
-            update: {
-              refs: {
-                cards: [ 1 ]
+            entities: [
+              {
+                id: 0,
+                refs: {
+                  cards: [ 1 ]
+                }
               }
-            }
+            ]
           })
         ).toEqual([
           { 
