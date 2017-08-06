@@ -1,54 +1,41 @@
 import lists from './lists';
-import { compact, union } from 'lodash';
+import { compact, union, cloneDeep } from 'lodash';
 
 const refs = (state = {}, action, id) =>
 {
   const stateKeys = Object.keys(state);
-  let refs = {};
+  let refs = cloneDeep(state);
   
   switch (action.type)
   {
     case 'REMOVE_ENTITY':
+      let removedIDs = action.entities.map(e => e.id);
+
       for(let key of stateKeys)
       {
         refs[key] = state[key]
-          .filter(id =>
-            {
-              const match = action.entities
-                            .map(e => e.id === id);
-              
-              return match.some(x => x !== true);
-            });
+                    .filter(id => removedIDs.indexOf(id) === -1);
       }
 
       return refs;
 
     case 'UPDATE_ENTITY':
-      let e = action.entities.map(e => {
-        if (e.id === id)
-        {
-          return e;
-        }
-      });
-      
-      e = compact(e)[0];
+      const e = action.entities.find(e => e.id === id);
 
       for(let key of stateKeys)
       {
-        if (e && e.refs.hasOwnProperty(key))
+        let hasKey = e && e.refs.hasOwnProperty(key);
+
+        if (hasKey)
         {
-          refs[key] = union(e.refs[key], state[key]);
-        }
-        else
-        {
-          refs[key] = state[key];
+          refs[key] = union(e.refs[key], refs[key]);
         }
       }
 
       return refs;
     
     default:
-      return state;
+      return refs;
   }
 }
 
@@ -57,9 +44,11 @@ const entity = (state = {}, action) =>
   switch (action.type)
   {
     case 'REMOVE_ENTITY':
-      let match = action.entities.filter(e => e.id === state.id);
-
-      if (match.length > 0) return; 
+      let selfRemove = action.entities
+                       .find(e => e.id === state.id);
+      
+      if (selfRemove)
+        return; 
 
       return {
         ...state,
@@ -68,7 +57,6 @@ const entity = (state = {}, action) =>
     
     case 'UPDATE_ENTITY':
       let id = state.id;
-      let update = action.entities[id];
 
       return {
         ...state,
