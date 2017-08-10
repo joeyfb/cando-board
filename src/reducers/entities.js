@@ -1,53 +1,44 @@
 import lists from './lists';
 import { compact, union, cloneDeep } from 'lodash';
 
-const refs = (state = {}, action, id) =>
+const refs = (state = [], action, id) =>
 {
-  const stateKeys = Object.keys(state);
-  let refs = cloneDeep(state);
+  const ids = action.entities.map(e => e.id);
+  const e = action.entities
+            .find(e => e.id === id);
   
   switch (action.type)
   {
     case 'REMOVE_ENTITY':
-      let removedIDs = action.entities.map(e => e.id);
+      return state.filter( id => ids.indexOf(id) === -1);
 
-      for(let key of stateKeys)
-      {
-        refs[key] = state[key]
-                    .filter(id => removedIDs.indexOf(id) === -1);
-      }
-
-      return refs;
-
+    case 'MOVE_ENTITY':
+      console.log('move', state, action, id); 
+      if (id !== action.id)
+        return state.filter( id => ids.indexOf(id) === -1);
+      
+      return e.refs.concat(state);
+    
     case 'UPDATE_ENTITY':
-      const e = action.entities.find(e => e.id === id);
-
-      for(let key of stateKeys)
-      {
-        let hasKey = e && e.refs.hasOwnProperty(key);
-
-        if (hasKey)
-        {
-          refs[key] = union(e.refs[key], refs[key]);
-        }
-      }
-
-      return refs;
+      if ( ! e )
+        return state;
+      
+      return e.refs.concat(state);
     
     default:
-      return refs;
+      return state;
   }
 }
 
 const entity = (state = {}, action) =>
 {
+  const e = action.entities
+            .find(e => e.id === state.id);
+  
   switch (action.type)
   {
     case 'REMOVE_ENTITY':
-      let selfRemove = action.entities
-                       .find(e => e.id === state.id);
-      
-      if (selfRemove)
+      if (e)
         return; 
 
       return {
@@ -55,13 +46,18 @@ const entity = (state = {}, action) =>
         refs: refs(state.refs, action, state.id)
       };
     
-    case 'UPDATE_ENTITY':
-      let id = state.id;
-
+    case 'MOVE_ENTITY':
       return {
         ...state,
-        ...action.entities[id],
-        refs: refs(state.refs, action, id)
+        ...e,
+        refs: refs(state.refs, action, state.id)
+      };
+
+    case 'UPDATE_ENTITY':
+      return {
+        ...state,
+        ...e,
+        refs: refs(state.refs, action, state.id)
       };
 
     default:
@@ -76,6 +72,7 @@ const entities = (state = [], action) =>
   {
     case 'REMOVE_ENTITY':
     case 'UPDATE_ENTITY':
+    case 'MOVE_ENTITY':
       let entities = state.map(e => entity(e, action));
 
       return compact(entities);

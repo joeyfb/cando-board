@@ -16,14 +16,14 @@ describe('entities reducer', () =>
             title: 'Do the RIGHT thing',
             object: 'card',
             id: 0,
-            refs: {}
+            refs: []
           }],
           {
             type: 'REMOVE_ENTITY',
             entities: [
               {
                 id: 0,
-                refs: {}
+                refs: []
               }
             ]
           })
@@ -34,30 +34,26 @@ describe('entities reducer', () =>
             title: 'Done',
             object: 'list',
             id: 0,
-            refs: {
-              cards: [ 1, 2 ]
-            }
+            refs: [ 1, 2 ]
           },
           {
             title: 'Do the THING',
             object: 'card',
             id: 1,
-            refs: {}
-
+            refs: []
           },
           {
             title: 'Do a THING',
             object: 'card',
             id: 2,
-            refs: {}
-
+            refs: []
           }],
           {
             type: 'REMOVE_ENTITY',
             entities: [
               {
                 id: 1,
-                refs: {}
+                refs: []
               }
             ]
           })
@@ -66,15 +62,13 @@ describe('entities reducer', () =>
             title: 'Done',
             object: 'list',
             id: 0,
-            refs: {
-              cards: [ 2 ]
-            }
+            refs: [ 2 ]
           },
           {
             title: 'Do a THING',
             object: 'card',
             id: 2,
-            refs: {}
+            refs: []
           }
         ]);
       });
@@ -86,7 +80,7 @@ describe('entities reducer', () =>
             title: 'Do the RIGHT thing',
             object: 'card',
             id: 0,
-            refs: {}
+            refs: []
           }],
           {
             type: 'UPDATE_ENTITY',
@@ -94,7 +88,7 @@ describe('entities reducer', () =>
               {
                 id: 0,
                 title: 'And so and so and so forth',
-                refs: {}
+                refs: []
               }
             ]
           })
@@ -102,7 +96,7 @@ describe('entities reducer', () =>
             title: 'And so and so and so forth',
             object: 'card',
             id: 0,
-            refs: {}
+            refs: []
           }]);
         
         expect(
@@ -110,15 +104,13 @@ describe('entities reducer', () =>
             title: 'Do the RIGHT thing',
             object: 'card',
             id: 0,
-            refs: {}
+            refs: []
           },
           {
             title: 'Something completely different',
             object: 'card',
             id: 1,
-            refs: {
-             cards: [1]
-            }
+            refs: [1]
           }
           ],
           {
@@ -127,7 +119,7 @@ describe('entities reducer', () =>
               {
                 id: 0,
                 title: 'And so and so and so forth',
-                refs: {}
+                refs: []
               }
             ]
           })
@@ -135,15 +127,13 @@ describe('entities reducer', () =>
             title: 'And so and so and so forth',
             object: 'card',
             id: 0,
-            refs: {}
+            refs: []
           },
           {
             title: 'Something completely different',
             object: 'card',
             id: 1,
-            refs: {
-             cards: [1]
-            }
+            refs: [1]
           }]);
         
         expect(
@@ -151,32 +141,27 @@ describe('entities reducer', () =>
             title: 'Done',
             object: 'list',
             id: 0,
-            refs: {
-              cards: [ 2 ]
-            }
+            refs: [ 2 ]
           },
           {
             title: 'Do the THING',
             object: 'card',
             id: 1,
-            refs: {}
+            refs: []
 
           },
           {
             title: 'Do a THING',
             object: 'card',
             id: 2,
-            refs: {}
-
+            refs: []
           }],
           {
             type: 'UPDATE_ENTITY',
             entities: [
               {
                 id: 0,
-                refs: {
-                  cards: [ 1 ]
-                }
+                refs: [ 1 ]
               }
             ]
           })
@@ -185,22 +170,19 @@ describe('entities reducer', () =>
             title: 'Done',
             object: 'list',
             id: 0,
-            refs: {
-              cards: [ 1, 2 ]
-            }
+            refs: [ 1, 2 ]
           },
           {
             title: 'Do the THING',
             object: 'card',
             id: 1,
-            refs: {}
-
+            refs: []
           },
           {
             title: 'Do a THING',
             object: 'card',
             id: 2,
-            refs: {}
+            refs: []
           }
         ]);
 
@@ -213,30 +195,26 @@ describe('entities reducer', () =>
             title: 'Done',
             object: 'list',
             id: 0,
-            refs: {
-              cards: [ 2 ]
-            }
+            refs: [ 2 ]
           },
           {
             title: 'Doing',
             object: 'list',
             id: 1,
-            refs: {
-              cards: [ ]
-            }
+            refs: []
           },
           {
             title: 'Do a THING',
             object: 'card',
             id: 2,
-            refs: {}
+            refs: []
           }],
           {
             type: 'MOVE_ENTITY',
-            id: 2,
             entities: [
               {
-                id: 1
+                id: 1,
+                refs: [ 2 ]
               }
             ]
           })
@@ -244,23 +222,19 @@ describe('entities reducer', () =>
             title: 'Done',
             object: 'list',
             id: 0,
-            refs: {
-              cards: [ ]
-            }
+            refs: [ ]
           },
           {
             title: 'Doing',
             object: 'list',
             id: 1,
-            refs: {
-              cards: [ 2 ]
-            }
+            refs: [ 2 ]
           },
           {
             title: 'Do a THING',
             object: 'card',
             id: 2,
-            refs: {}
+            refs: []
           }
         ]);
       });
