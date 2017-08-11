@@ -186,10 +186,6 @@ describe('entities reducer', () =>
           }
         ]);
 
-      });
-    
-    it('should handle move', () =>
-      {
         expect(
           entities([{
             title: 'Done',
@@ -210,7 +206,7 @@ describe('entities reducer', () =>
             refs: []
           }],
           {
-            type: 'MOVE_ENTITY',
+            type: 'UPDATE_ENTITY',
             entities: [
               {
                 id: 1,

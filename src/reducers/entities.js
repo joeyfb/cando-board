@@ -1,27 +1,24 @@
 import lists from './lists';
-import { compact, union, cloneDeep } from 'lodash';
+import { compact, cloneDeep } from 'lodash';
 
 const refs = (state = [], action, id) =>
 {
-  const ids = action.entities.map(e => e.id);
   const e = action.entities
             .find(e => e.id === id);
   
   switch (action.type)
   {
     case 'REMOVE_ENTITY':
+      let ids = action.entities.map(e => e.id);
+      
       return state.filter( id => ids.indexOf(id) === -1);
 
-    case 'MOVE_ENTITY':
-      console.log('move', state, action, id); 
-      if (id !== action.id)
-        return state.filter( id => ids.indexOf(id) === -1);
-      
-      return e.refs.concat(state);
-    
     case 'UPDATE_ENTITY':
       if ( ! e )
-        return state;
+      {
+        let ids = action.entities[0].refs;
+        return state.filter( id => ids.indexOf(id) === -1);
+      }
       
       return e.refs.concat(state);
     
