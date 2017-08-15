@@ -35,8 +35,7 @@ const entity = (state = {}, action) =>
   switch (action.type)
   {
     case 'REMOVE_ENTITY':
-      if (e)
-        return; 
+      if (e) return; 
 
       return {
         ...state,
@@ -44,12 +43,6 @@ const entity = (state = {}, action) =>
       };
     
     case 'MOVE_ENTITY':
-      return {
-        ...state,
-        ...e,
-        refs: refs(state.refs, action, state.id)
-      };
-
     case 'UPDATE_ENTITY':
       return {
         ...state,
@@ -67,6 +60,11 @@ const entities = (state = [], action) =>
 
   switch (action.type)
   {
+    case 'CREATE_ENTITY':
+      let e = action.entities[0];
+      
+      return state.concat( [e] );
+
     case 'REMOVE_ENTITY':
     case 'UPDATE_ENTITY':
     case 'MOVE_ENTITY':

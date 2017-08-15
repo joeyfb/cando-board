@@ -72,6 +72,66 @@ describe('entities reducer', () =>
           }
         ]);
       });
+    
+    it('should handle create', () =>
+      {
+        expect(
+          entities([],
+          {
+            type: 'CREATE_ENTITY',
+            entities: [
+              {
+                title: 'Do the RIGHT thing',
+                object: 'card',
+                id: 0,
+                refs: []
+              }
+            ]
+          })
+        ).toEqual([
+          {
+            title: 'Do the RIGHT thing',
+            object: 'card',
+            id: 0,
+            refs: []
+          }
+        ]);
+        
+        expect(
+          entities([
+            {
+              title: 'Do the RIGHT thing',
+              object: 'card',
+              id: 0,
+              refs: []
+            }
+          ],
+          {
+            type: 'CREATE_ENTITY',
+            entities: [
+              {
+                title: 'On hold',
+                object: 'list',
+                id: 1,
+                refs: [ 0 ]
+              }
+            ]
+          })
+        ).toEqual([
+          {
+            title: 'Do the RIGHT thing',
+            object: 'card',
+            id: 0,
+            refs: []
+          },
+          {
+            title: 'On hold',
+            object: 'list',
+            id: 1,
+            refs: [ 0 ]
+          }
+        ]);
+      });
 
     it('should handle update', () =>
       {
