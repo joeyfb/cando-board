@@ -44,6 +44,100 @@ describe('entity actions', () =>
               ]
           });
         });
+
+  it('updateEntity should create UPDATE_ACTION action', () =>
+    {
+      expect(
+          actions.updateEntity({
+            id: 1,
+            title : 'thingy'
+          })
+        ).toEqual({
+          type: 'UPDATE_ENTITY',
+          entities: [
+            {
+              id: 1,
+              title : 'thingy'
+            }
+          ]
+      });
+
+      expect(
+          actions.updateEntity({
+            id: 3,
+            title : 'create specs',
+            object: 'card'
+          })
+        ).toEqual({
+          type: 'UPDATE_ENTITY',
+          entities: [
+            {
+              id: 3,
+              title : 'create specs',
+              object: 'card'
+            }
+          ]
+      });
+    });
+  
+  it('deleteEntity should create DELETE_ACTION action', () =>
+    {
+      expect(
+          actions.deleteEntity(1)
+        ).toEqual({
+            type: 'DELETE_ENTITY',
+            entities: [
+              {
+                id: 1
+              }
+            ]
+      });
+      
+      expect(
+          actions.deleteEntity(2)
+        ).toEqual({
+            type: 'DELETE_ENTITY',
+            entities: [
+              {
+                id: 2
+              }
+            ]
+      });
+    });
+  
+  it('createEntity should create CREATE_ACTION action', () =>
+    {
+      expect(
+          actions.createEntity({
+              id: 1,
+              title: "Meet Doctor Who",
+              object: 'card',
+              refs: [ 0 ]
+          })
+        ).toEqual({
+            type: 'CREATE_ENTITY',
+            entities: [
+              {
+                id: 1,
+                title: "Meet Doctor Who",
+                object: 'card',
+                refs: [ 0 ]
+              }
+            ]
+      });
+      
+      expect(
+          actions.deleteEntity(2)
+        ).toEqual({
+            type: 'DELETE_ENTITY',
+            entities: [
+              {
+                id: 2
+              }
+            ]
+      });
+    });
+  
   });
 
 describe('list actions', () =>
@@ -186,21 +280,21 @@ describe('list actions', () =>
   });
 
   it('moveCard should create MOVE_CARD action', () =>
-      {
+    {
 
-        expect(actions.moveCard(0, 1, [2], 2)
-            ).toEqual({
-          type: 'MOVE_CARD',
-          pos: 0,
-          start: {
-            id: 1,
-            cards: [ 2 ]
-          },
-          stop: {
-            id: 2
-          }
-        });
-
+      expect(actions.moveCard(0, 1, [2], 2)
+          ).toEqual({
+        type: 'MOVE_CARD',
+        pos: 0,
+        start: {
+          id: 1,
+          cards: [ 2 ]
+        },
+        stop: {
+          id: 2
+        }
       });
 
+    });
+  
 });

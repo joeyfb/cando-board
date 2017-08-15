@@ -125,3 +125,30 @@ export const removeEntity = (listId, cardId) =>
   }
 };
 
+export const updateEntity = (entity) =>
+{
+  return {
+    type: 'UPDATE_ENTITY',
+    entities: [
+      entity
+    ]
+  };
+};
+
+export const deleteEntity = (id) =>
+{
+  return {
+    type: 'DELETE_ENTITY',
+    entities: [
+      { id }
+    ]
+  };
+};
+
+export const createEntity = (entity) =>
+{
+  return {
+    type: 'CREATE_ENTITY',
+    entities: [ entity ]
+  };
+};
