@@ -2,7 +2,6 @@ import * as actions from './index';
 
 const zeroIds = (obj) =>
 {
-
   obj['id'] = 0;
 
   if (obj['cards'])
@@ -107,35 +106,33 @@ describe('entity actions', () =>
   
   it('createEntity should create CREATE_ACTION action', () =>
     {
-      expect(
-          actions.createEntity({
-              id: 1,
-              title: "Meet Doctor Who",
-              object: 'card',
-              refs: [ 0 ]
-          })
-        ).toEqual({
+      const e = actions.createEntity(
+          {
+            title: "Meet Doctor Who",
+            object: 'card',
+            refs: [ 'abc-123' ]
+          }
+      );
+      let id = e.entities[0].id;
+
+      if ( ! id )
+        id = 'no ID given';
+
+      expect( e )
+        .toEqual(
+          {
             type: 'CREATE_ENTITY',
             entities: [
               {
-                id: 1,
+                id,
                 title: "Meet Doctor Who",
                 object: 'card',
-                refs: [ 0 ]
+                refs: [ 'abc-123' ]
               }
             ]
-      });
-      
-      expect(
-          actions.deleteEntity(2)
-        ).toEqual({
-            type: 'DELETE_ENTITY',
-            entities: [
-              {
-                id: 2
-              }
-            ]
-      });
+          }
+      );
+    
     });
   
   });

@@ -149,6 +149,11 @@ export const createEntity = (entity) =>
 {
   return {
     type: 'CREATE_ENTITY',
-    entities: [ entity ]
+    entities: [ 
+      {
+        ...entity,
+        id: v4()
+      }
+    ]
   };
 };
