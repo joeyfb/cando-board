@@ -10,13 +10,13 @@ import {
 
 const mapStateToProps = (state, ownProps) =>
 {
-  const list = state.lists.find( (l) =>
-    l.id === ownProps.id
-  );
+  const moving = state.moving;
+  const list = state.entities
+              .find(e => e.id === ownProps.id);
 
   return {
     ...list,
-    start: state.moving
+    start: moving
   };
 }
 

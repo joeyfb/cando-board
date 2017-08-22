@@ -5,7 +5,7 @@ import AddList from '../containers/AddList.js';
 const Board = ({
   title,
   created,
-  lists,
+  refs,
   moving,
   onMouseUp
 }) =>
@@ -25,7 +25,7 @@ const Board = ({
         </header>
        
         <div className="lists-wrapper">
-            {lists.map(listId =>
+            {refs.map(listId =>
                 <ChangableList
                     id={listId}
                     key={listId}

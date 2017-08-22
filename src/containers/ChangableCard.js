@@ -16,9 +16,8 @@ const isMoving = (moving, id) =>
 
 const mapStateToProps = (state, ownProps) =>
 { 
-  const card = state.cards.find( (i) =>
-    i.id === ownProps.id
-  );
+  const card = state.entities
+              .find(e => e.id === ownProps.id);
 
   return {
     ...card,

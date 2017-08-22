@@ -5,10 +5,17 @@ import Board from '../components/Board';
 import { moveClear } from '../actions';
 
 const mapStateToProps = (state, ownProps) =>
-({
-  ...state.board,
-  moving: state.moving
-});
+{
+  const moving = state.moving;
+  const board = state.entities
+              .find(e => e.object === 'board');
+ 
+  console.log(board);
+  return {
+    ...board,
+    moving
+  };
+};
 
 const mapDispatchToProps = (dispatch, ownProps) =>
 ({

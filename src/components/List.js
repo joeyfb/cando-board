@@ -7,7 +7,7 @@ import Field from '../containers/EditableField';
 const List = ({
   title,
   id,
-  cards,
+  refs,
   onEditTitle,
   start,
   onMouseUp
@@ -26,7 +26,7 @@ const List = ({
 
               <EntityDelete
                 listId={id}
-                cards={cards} 
+                cards={refs} 
               />
             </h3>
         </header>
@@ -34,7 +34,7 @@ const List = ({
         <ul
           className="card-list"
         >
-            {cards.map( (cardId, pos) =>
+            {refs.map( (cardId, pos) =>
                 <ChangableCard
                     key={cardId}
                     id={cardId}
