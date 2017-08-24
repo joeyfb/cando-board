@@ -27,9 +27,7 @@ const Card = ({
                   {title}
                 </span>
 
-                <EntityDelete
-                  cardId={id}
-                />
+                <EntityDelete id={id} />
             </h4>
 
             <div className="inner-card">

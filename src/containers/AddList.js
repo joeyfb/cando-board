@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createEntity, updateEntity } from '../actions';
+import { createEntity } from '../actions';
 
 const addList = (title, parentID) => 
   createEntity({

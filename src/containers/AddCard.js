@@ -1,6 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addCard } from '../actions';
+import { createEntity } from '../actions';
+
+const addCard = (title, parentID) => 
+  createEntity({
+    title,
+    object: 'card',
+    refs: []
+  }, parentID);
 
 let AddItem = ({
   dispatch,
@@ -19,12 +26,12 @@ let AddItem = ({
 
                             if ( ! input.value.trim())
                             {
-                                return
+                                return;
                             }
 
-                            dispatch(addCard(listId, input.value))
+                            dispatch(addCard(input.value, listId));
 
-                            input.value = ""
+                            input.value = "";
                        }}>
                 
                 <input ref={node => {input = node}} />
@@ -38,6 +45,6 @@ let AddItem = ({
     )
 }
 
-AddItem = connect()(AddItem)
+AddItem = connect()(AddItem);
 
-export default AddItem
+export default AddItem;

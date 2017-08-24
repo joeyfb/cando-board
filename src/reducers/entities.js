@@ -1,5 +1,4 @@
-import lists from './lists';
-import { compact, cloneDeep } from 'lodash';
+import { compact } from 'lodash';
 
 const refs = (state = [], action, id) =>
 {
@@ -8,7 +7,7 @@ const refs = (state = [], action, id) =>
   
   switch (action.type)
   {
-    case 'REMOVE_ENTITY':
+    case 'DELETE_ENTITY':
       let ids = action.entities.map(e => e.id);
       
       return state.filter( id => ids.indexOf(id) === -1);
@@ -46,7 +45,7 @@ const entity = (state = {}, action) =>
         refs: state.refs.concat( [childID] )
       };
 
-    case 'REMOVE_ENTITY':
+    case 'DELETE_ENTITY':
       if (e) return; 
 
       return {
@@ -81,7 +80,7 @@ const entities = (state = [], action) =>
 
       return compact(entities);
 
-    case 'REMOVE_ENTITY':
+    case 'DELETE_ENTITY':
     case 'UPDATE_ENTITY':
     case 'MOVE_ENTITY':
       entities = state.map(e => entity(e, action));

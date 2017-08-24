@@ -24,10 +24,7 @@ const List = ({
                 onsubmit={onEditTitle}
               />
 
-              <EntityDelete
-                listId={id}
-                cards={refs} 
-              />
+              <EntityDelete id={id} />
             </h3>
         </header>
 

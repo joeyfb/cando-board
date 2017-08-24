@@ -1,7 +1,7 @@
 // eslint-disable-next-line
 import React from 'react';
 import { connect } from 'react-redux';
-import { removeEntity, removeCard } from '../actions';
+import { deleteEntity } from '../actions';
 import DeleteButton from '../components/DeleteButton';
 
 const mapDispatchToProps = (dispatch, ownProps) =>
@@ -10,17 +10,9 @@ const mapDispatchToProps = (dispatch, ownProps) =>
   {
     const message = 'This cannot be undone, are you sure?';
 
-    if ( ! confirm(message) )
-    {
-      return;
-    }
+    if ( ! confirm(message)) return;
 
-    if (ownProps.cards)
-    {
-      ownProps.cards.map( (id) => dispatch(removeCard(id)) );
-    }
-
-    dispatch(removeEntity(ownProps.listId, ownProps.cardId));
+    dispatch(deleteEntity(ownProps.id));
   }
 });
 

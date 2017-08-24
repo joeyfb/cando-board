@@ -19,7 +19,7 @@ describe('entities reducer', () =>
             refs: []
           }],
           {
-            type: 'REMOVE_ENTITY',
+            type: 'DELETE_ENTITY',
             entities: [
               {
                 id: 0,
@@ -49,7 +49,7 @@ describe('entities reducer', () =>
             refs: []
           }],
           {
-            type: 'REMOVE_ENTITY',
+            type: 'DELETE_ENTITY',
             entities: [
               {
                 id: 1,
