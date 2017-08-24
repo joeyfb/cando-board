@@ -26,11 +26,10 @@ const refs = (state = [], action, id) =>
   }
 }
 
-const entity = (state = {}, action) =>
+const entity = (state = {}, action, children) =>
 {
   const e = action.entities
             .find(e => e.id === state.id);
-  
   
   switch (action.type)
   {
@@ -46,7 +45,9 @@ const entity = (state = {}, action) =>
       };
 
     case 'DELETE_ENTITY':
-      if (e) return; 
+      const r = children.indexOf(state.id) !== -1;
+  
+      if (e || r) return; 
 
       return {
         ...state,
@@ -81,6 +82,11 @@ const entities = (state = [], action) =>
       return compact(entities);
 
     case 'DELETE_ENTITY':
+      const refs = state.find(e => e.id === action.entities[0].id).refs;
+      entities = state.map(e => entity(e, action, refs));
+     
+      return compact(entities);
+    
     case 'UPDATE_ENTITY':
     case 'MOVE_ENTITY':
       entities = state.map(e => entity(e, action));

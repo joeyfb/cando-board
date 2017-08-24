@@ -71,6 +71,35 @@ describe('entities reducer', () =>
             refs: []
           }
         ]);
+
+        expect(
+          entities([{
+            title: 'Done',
+            object: 'list',
+            id: 0,
+            refs: [ 1, 2 ]
+          },
+          {
+            title: 'Do the THING',
+            object: 'card',
+            id: 1,
+            refs: []
+          },
+          {
+            title: 'Do a THING',
+            object: 'card',
+            id: 2,
+            refs: []
+          }],
+          {
+            type: 'DELETE_ENTITY',
+            entities: [
+              {
+                id: 0
+              }
+            ]
+          })
+        ).toEqual([]);
       });
     
     it('should handle create', () =>
