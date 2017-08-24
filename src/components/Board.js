@@ -7,7 +7,8 @@ const Board = ({
   created,
   refs,
   moving,
-  onMouseUp
+  onMouseUp,
+  id
 }) =>
 {
   const isMoving = moving.hasOwnProperty('lists');
@@ -39,7 +40,7 @@ const Board = ({
                     </h3>
                 </header>
                 
-                <AddList />
+                <AddList boardID={id} />
             </section>
         </div>
 

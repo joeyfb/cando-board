@@ -1,9 +1,17 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { addList } from '../actions'
+import React from 'react';
+import { connect } from 'react-redux';
+import { createEntity, updateEntity } from '../actions';
+
+const addList = (title, parentID) => 
+  createEntity({
+    title,
+    object: 'list',
+    refs: []
+  }, parentID);
 
 let AddList = ({
-  dispatch
+  dispatch,
+  boardID
 }) =>
 {
     let input
@@ -11,15 +19,15 @@ let AddList = ({
     return (
         <div className="form add-list">
             <form onSubmit={e => {
-                                e.preventDefault()
+                                e.preventDefault();
                                 
                                 if ( ! input.value.trim() )
                                 {
-                                    return
+                                    return;
                                 }
 
-                                dispatch(addList(input.value))
-                                input.value = ""
+                                dispatch(addList(input.value, boardID));
+                                input.value = "";
                             }}>
 
                 <input ref={node => {input = node}}/>
@@ -30,8 +38,8 @@ let AddList = ({
             </form>
         </div>
     )
-}
+};
 
-AddList = connect()(AddList)
+AddList = connect()(AddList);
 
-export default AddList
+export default AddList;

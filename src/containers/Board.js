@@ -10,7 +10,6 @@ const mapStateToProps = (state, ownProps) =>
   const board = state.entities
               .find(e => e.object === 'board');
  
-  console.log(board);
   return {
     ...board,
     moving
