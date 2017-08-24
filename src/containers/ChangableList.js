@@ -5,8 +5,15 @@ import List from '../components/List';
 import { 
     moveClear,
     moveCard,
-    updateList
+    updateEntity
   } from '../actions';
+
+const updateList = (id, title, refs=[]) =>
+updateEntity({
+  id,
+  title,
+  refs
+});
 
 const mapStateToProps = (state, ownProps) =>
 {

@@ -126,35 +126,29 @@ export const removeEntity = (listId, cardId) =>
 };
 
 export const updateEntity = (entity) =>
-{
-  return {
-    type: 'UPDATE_ENTITY',
-    entities: [
-      entity
-    ]
-  };
-};
+({
+  type: 'UPDATE_ENTITY',
+  entities: [
+    entity
+  ]
+});
 
 export const deleteEntity = (id) =>
-{
-  return {
-    type: 'DELETE_ENTITY',
-    entities: [
-      { id }
-    ]
-  };
-};
+({
+  type: 'DELETE_ENTITY',
+  entities: [
+    { id }
+  ]
+});
 
 export const createEntity = (entity, parentID) =>
-{
-  return {
-    type: 'CREATE_ENTITY',
-    entities: [ 
-      {
-        ...entity,
-        id: v4()
-      }
-    ],
-    parentID
-  };
-};
+({
+  type: 'CREATE_ENTITY',
+  entities: [ 
+    {
+      ...entity,
+      id: v4()
+    }
+  ],
+  parentID
+});
