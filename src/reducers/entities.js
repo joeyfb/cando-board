@@ -32,8 +32,20 @@ const entity = (state = {}, action) =>
   const e = action.entities
             .find(e => e.id === state.id);
   
+  
   switch (action.type)
   {
+    case 'CREATE_ENTITY':
+      const isParent = action.parentID === state.id;
+      const childID = action.entities[0].id;
+
+      if ( ! isParent) return state;
+
+      return {
+        ...state,
+        refs: state.refs.concat( [childID] )
+      };
+
     case 'REMOVE_ENTITY':
       if (e) return; 
 
@@ -57,18 +69,22 @@ const entity = (state = {}, action) =>
 
 const entities = (state = [], action) =>
 {
+  var entities;
 
   switch (action.type)
   {
     case 'CREATE_ENTITY':
       let e = action.entities[0];
-      
-      return state.concat( [e] );
+
+      entities = state.concat( [e] );
+      entities = entities.map(e => entity(e, action));
+
+      return compact(entities);
 
     case 'REMOVE_ENTITY':
     case 'UPDATE_ENTITY':
     case 'MOVE_ENTITY':
-      let entities = state.map(e => entity(e, action));
+      entities = state.map(e => entity(e, action));
 
       return compact(entities);
 

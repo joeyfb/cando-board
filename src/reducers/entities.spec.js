@@ -131,6 +131,90 @@ describe('entities reducer', () =>
             refs: [ 0 ]
           }
         ]);
+
+        expect(
+          entities([
+            {
+              title: 'Game board',
+              object: 'board',
+              id: 0,
+              refs: []
+            }
+          ],
+          {
+            type: 'CREATE_ENTITY',
+            entities: [
+              {
+                title: 'Ideas',
+                object: 'list',
+                id: 1,
+                refs: [ ]
+              }
+            ],
+            parentID: 0
+          })
+        ).toEqual([
+          {
+            title: 'Game board',
+            object: 'board',
+            id: 0,
+            refs: [ 1 ]
+          },
+          {
+            title: 'Ideas',
+            object: 'list',
+            id: 1,
+            refs: [ ]
+          }
+        ]);
+
+        expect(
+          entities([
+            {
+              title: 'Business Place',
+              object: 'board',
+              id: 'a',
+              refs: [ 'b' ]
+            },
+            {
+                title: 'Projects',
+                object: 'list',
+                id: 'b',
+                refs: [ ]
+            }
+          ],
+          {
+            type: 'CREATE_ENTITY',
+            entities: [
+              {
+                title: 'Leads',
+                object: 'list',
+                id: 'c',
+                refs: [ ]
+              }
+            ],
+            parentID: 'a'
+          })
+        ).toEqual([
+          {
+            title: 'Business Place',
+            object: 'board',
+            id: 'a',
+            refs: [ 'b', 'c' ]
+          },
+          {
+            title: 'Projects',
+            object: 'list',
+            id: 'b',
+            refs: [ ]
+          },
+          {
+            title: 'Leads',
+            object: 'list',
+            id: 'c',
+            refs: [ ]
+          }
+        ]);
       });
 
     it('should handle update', () =>
