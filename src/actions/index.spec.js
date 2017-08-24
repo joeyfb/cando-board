@@ -111,7 +111,8 @@ describe('entity actions', () =>
             title: "Meet Doctor Who",
             object: 'card',
             refs: [ 'abc-123' ]
-          }
+          },
+          'b'
       );
       let id = e.entities[0].id;
 
@@ -129,7 +130,8 @@ describe('entity actions', () =>
                 object: 'card',
                 refs: [ 'abc-123' ]
               }
-            ]
+            ],
+            parentID: 'b'
           }
         );
     

@@ -112,7 +112,7 @@ export const moveCard = (pos, startList, startCards, stopId) =>
   };
 };
 
-// compound actions
+// entity actions
 export const removeEntity = (listId, cardId) =>
 {
   if (cardId !== undefined)
@@ -145,7 +145,7 @@ export const deleteEntity = (id) =>
   };
 };
 
-export const createEntity = (entity) =>
+export const createEntity = (entity, parentID) =>
 {
   return {
     type: 'CREATE_ENTITY',
@@ -154,6 +154,7 @@ export const createEntity = (entity) =>
         ...entity,
         id: v4()
       }
-    ]
+    ],
+    parentID
   };
 };
