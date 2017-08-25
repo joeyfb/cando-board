@@ -106,21 +106,21 @@ describe('move actions', () =>
     expect(actions.moveStart(1, 2)
         ).toEqual({
       type: 'MOVE_START',
-      lists: [
-      {
-        id: 1,
-        cards: [2]
-      }
+      entities: [
+        {
+          id: 1,
+          refs: [2]
+        }
       ]
     });
 
     expect(actions.moveStart(1)
         ).toEqual({
       type: 'MOVE_START',
-      lists: [
-      {
-        id: 1
-      }
+      entities: [
+        {
+          id: 1
+        }
       ]
     });
 
@@ -130,26 +130,19 @@ describe('move actions', () =>
 
     expect(actions.moveStop()
         ).toEqual({
-      type: 'MOVE_STOP',
-      status: 'fail'
+      type: 'MOVE_STOP'
     });
 
     expect(actions.moveStop(1,2)
         ).toEqual({
       type: 'MOVE_STOP',
       pos: 1,
-      status: 'success',
-      lists: [
-      {
-        id: 2
-      }
-      ]
+      stop: 2
     });
 
     expect(actions.moveStop(0)
         ).toEqual({
       type: 'MOVE_STOP',
-      status: 'success',
       pos: 0
     });
   });

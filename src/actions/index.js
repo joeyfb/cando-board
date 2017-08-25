@@ -1,41 +1,36 @@
 import { v4 } from 'node-uuid';
 
 // move
-export const moveStart = (listId, cardId) =>
+export const moveStart = (parentId, childId) =>
 {
-  let list = {
-    id: listId
+  let parentEntity = {
+    id: parentId
   };
 
-  if (cardId)
+  if (childId)
   {
-    list.cards = [ cardId ];
+    parentEntity.refs = [ childId ];
   }
 
   return {
     type: 'MOVE_START',
-    lists: [ list ]
+    entities: [ parentEntity ]
   };
 };
 
-export const moveStop = (pos, listId) =>
+export const moveStop = (pos, parentId) =>
 {
   let move = {  
       type: 'MOVE_STOP',
   };
 
-  if ( pos === undefined )
-  {
-    move.status = 'fail';
-    return move;
-  }
+  if ( pos === undefined ) return move;
 
-  move.status = 'success';
   move.pos = pos;
 
-  if (listId)
+  if (parentId)
   {
-    move.lists = [ { id: listId } ];
+    move.stop = parentId;
   }
 
   return  move;

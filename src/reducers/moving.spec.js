@@ -18,40 +18,40 @@ describe('moving reducer', () =>
         expect(
             moving({}, {
               type: 'MOVE_START',
-              lists: [
+              entities: [
                 {
                   id: 1,
-                  cards: [2]
+                  refs: [2]
                 }
               ]
             })
           ).toEqual({
-              lists: [
+              entities: [
                 {
                   id: 1,
-                  cards: [2]
+                  refs: [2]
                 }
               ]
           })
         
         expect(
             moving({
-              lists: [
+              entities: [
                 {
                   id: 4,
-                  cards: [2]
+                  refs: [2]
                 }
               ]
             }, {
               type: 'MOVE_START',
-              lists: [
+              entities: [
                 {
                   id: 2
                 }
               ]
             })
           ).toEqual({
-              lists: [
+              entities: [
                 {
                   id: 2
                 }
@@ -61,14 +61,14 @@ describe('moving reducer', () =>
         expect(
             moving({}, {
               type: 'MOVE_START',
-              lists: [
+              entities: [
                 {
                   id: 9
                 }
               ]
             })
           ).toEqual({
-              lists: [
+              entities: [
                 {
                   id: 9
                 }
@@ -80,44 +80,44 @@ describe('moving reducer', () =>
     it('should handle MOVE_STOP', () => { 
         expect(
             moving({
-              lists: [
+              entities: [
                 {
                   id: 4,
-                  cards: [2]
+                  refs: [2]
                 }
               ]
             }, {
               type: 'MOVE_STOP',
-              listId: 1 
+              stop: 1 
             })
         ).toEqual({
-          lists: [
+          entities: [
             {
               id: 4,
-              cards: [2]
+              refs: [2]
             }
           ],
-          stop: { id: 1 }
+          stop: 1
         })
         
         expect(
             moving({
-              lists: [
+              entities: [
                 {
                   id: 4
                 }
               ]
             }, {
               type: 'MOVE_STOP',
-              listId: 5
+              stop: 5
             })
         ).toEqual({
-          lists: [
+          entities: [
             {
               id: 4
             }
           ],
-          stop: { id: 5 }
+          stop: 5
         })
       
       })

@@ -4,15 +4,13 @@ const moving = (state = {}, action) =>
   {
     case 'MOVE_START':
       return {
-        lists: action.lists
+        entities: action.entities
       }
 
     case 'MOVE_STOP':
       return {
         ...state,
-        stop: {
-          id: action.listId
-        }
+        stop: action.stop
       }
     
     case 'MOVE_CLEAR':
