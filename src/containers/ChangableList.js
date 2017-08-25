@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import List from '../components/List';
 import { 
     moveClear,
-    moveCard,
     updateEntity
   } from '../actions';
 
@@ -14,6 +13,8 @@ updateEntity({
   title,
   refs
 });
+
+const moveCard = (id, startListID) => ({});
 
 const mapStateToProps = (state, ownProps) =>
 {
