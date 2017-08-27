@@ -8,13 +8,17 @@ import {
   } from '../actions';
 
 const updateList = (id, title, refs=[]) =>
-updateEntity({
-  id,
-  title,
-  refs
-});
+  updateEntity({
+    id,
+    title,
+    refs
+  });
 
-const moveCard = (id, startListID) => ({});
+const moveCard = (id, cards, pos) =>
+  updateEntity({
+     id,
+     refs: cards
+  });
 
 const mapStateToProps = (state, ownProps) =>
 {
@@ -34,15 +38,15 @@ const mapDispatchToProps = (dispatch, ownProps) =>
   {
     e.stopPropagation();
 
-    if ( ! start.lists )
+    if ( ! start.entities )
     {
       dispatch(moveClear());
       return;
     }
 
-    const startList = start.lists[0];
+    const startList = start.entities[0];
 
-    dispatch(moveCard(pos, startList.id, startList.cards, id));
+    dispatch(moveCard(id, startList.refs));
     dispatch(moveClear());
   },
 

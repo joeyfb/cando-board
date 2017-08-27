@@ -6,10 +6,10 @@ import Card from '../components/Card';
 
 const isMoving = (moving, id) =>
 {
-  const list = moving.hasOwnProperty('lists')
-               ? moving.lists[0]
+  const list = moving.hasOwnProperty('entities')
+               ? moving.entities[0]
                : false;
-  const cardId = list ? list.cards[0] : false;
+  const cardId = list ? list.refs[0] : false;
 
   return cardId && cardId === id;
 };

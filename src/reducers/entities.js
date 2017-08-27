@@ -1,25 +1,30 @@
-import { compact } from 'lodash';
+import { compact, uniq } from 'lodash';
+
+const deleteMovedIds = (state, action) =>
+{
+	let updatedIds = action.entities[0].refs;
+
+	return state.filter( id => updatedIds.indexOf(id) === -1);
+};
 
 const refs = (state = [], action, id) =>
 {
-  const e = action.entities
-            .find(e => e.id === id);
   
   switch (action.type)
   {
     case 'DELETE_ENTITY':
-      let ids = action.entities.map(e => e.id);
+      let deletedIds = action.entities.map(e => e.id);
       
-      return state.filter( id => ids.indexOf(id) === -1);
+			return state.filter( id => deletedIds.indexOf(id) === -1);
 
     case 'UPDATE_ENTITY':
-      if ( ! e )
-      {
-        let ids = action.entities[0].refs;
-        return state.filter( id => ids.indexOf(id) === -1);
-      }
+			const e = action.entities
+							  .find(e => e.id === id);
       
-      return e.refs.concat(state);
+			if (e === undefined)
+				return deleteMovedIds(state, action);
+			
+      return uniq( e.refs.concat(state) );
     
     default:
       return state;
