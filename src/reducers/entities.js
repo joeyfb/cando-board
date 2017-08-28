@@ -12,12 +12,12 @@ const insertIfExists = (state, action, entity) =>
 
 	const ref = entity.refs[0];
 	const pos = action.position ? action.position : 0;
-	state = state.concat( [] );
 
 	if ( ! ref) return state;
-
+	
+	state = state.concat( [] );
 	pull(state, ref);
-	state.splice(action.position, 0, ref);
+	state.splice(pos, 0, ref);
 
 	return state;
 }
@@ -28,7 +28,7 @@ const refs = (state = [], action, id) =>
   switch (action.type)
   {
     case 'DELETE_ENTITY':
-      let deletedIds = action.entities.map(e => e.id);
+      const deletedIds = action.entities.map(e => e.id);
       
 			return state.filter( id => deletedIds.indexOf(id) === -1);
 
@@ -55,19 +55,19 @@ const entity = (state = {}, action, children) =>
   {
     case 'CREATE_ENTITY':
       const isParent = action.parentID === state.id;
-      const childID = action.entities[0].id;
+      const childId = action.entities[0].id;
 
       if ( ! isParent) return state;
 
       return {
         ...state,
-        refs: state.refs.concat( [childID] )
+        refs: state.refs.concat( [childId] )
       };
 
     case 'DELETE_ENTITY':
-      const r = children.indexOf(state.id) !== -1;
+      const childOfDeleted = children.indexOf(state.id) !== -1;
   
-      if (e || r) return; 
+      if (e || childOfDeleted) return; 
 
       return {
         ...state,
@@ -94,16 +94,17 @@ const entities = (state = [], action) =>
   switch (action.type)
   {
     case 'CREATE_ENTITY':
-      let e = action.entities[0];
-
-      entities = state.concat( [e] );
+      entities = state.concat( action.entities );
       entities = entities.map(e => entity(e, action));
 
       return compact(entities);
 
     case 'DELETE_ENTITY':
-      const refs = state.find(e => e.id === action.entities[0].id).refs;
-      entities = state.map(e => entity(e, action, refs));
+			const deletedId = action.entities[0].id;
+      const deletedRefs = state
+												  .find(e => e.id === deletedId).refs;
+
+      entities = state.map(e => entity(e, action, deletedRefs));
      
       return compact(entities);
     
