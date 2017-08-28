@@ -1,4 +1,4 @@
-import { compact, uniq } from 'lodash';
+import { compact, pull } from 'lodash';
 
 const deleteMovedIds = (state, action) =>
 {
@@ -15,10 +15,11 @@ const insertIfExists = (state, action, entity) =>
 	state = state.concat( [] );
 
 	if ( ! ref) return state;
-	
+
+	pull(state, ref);
 	state.splice(action.position, 0, ref);
 
-	return uniq( state );
+	return state;
 }
 
 const refs = (state = [], action, id) =>
