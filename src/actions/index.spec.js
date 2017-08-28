@@ -36,6 +36,24 @@ describe('entity actions', () =>
             }
           ]
       });
+      
+      expect(
+          actions.updateEntity({
+            id: 3,
+            title : 'create specs',
+            object: 'card'
+          }, 2)
+        ).toEqual({
+          type: 'UPDATE_ENTITY',
+          position: 2,
+          entities: [
+            {
+              id: 3,
+              title : 'create specs',
+              object: 'card'
+            }
+          ]
+      });
     });
   
   it('deleteEntity should create DELETE_ACTION action', () =>

@@ -18,7 +18,7 @@ const moveCard = (id, cards, pos) =>
   updateEntity({
      id,
      refs: cards
-  });
+  }, pos);
 
 const mapStateToProps = (state, ownProps) =>
 {
@@ -46,7 +46,7 @@ const mapDispatchToProps = (dispatch, ownProps) =>
 
     const startList = start.entities[0];
 
-    dispatch(moveCard(id, startList.refs));
+    dispatch(moveCard(id, startList.refs, pos));
     dispatch(moveClear());
   },
 

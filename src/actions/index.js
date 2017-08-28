@@ -42,9 +42,10 @@ export const moveClear = () =>
 });
 
 // entity actions
-export const updateEntity = (entity) =>
+export const updateEntity = (entity, position) =>
 ({
   type: 'UPDATE_ENTITY',
+  position,
   entities: [
     entity
   ]

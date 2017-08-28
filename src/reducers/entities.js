@@ -2,10 +2,24 @@ import { compact, uniq } from 'lodash';
 
 const deleteMovedIds = (state, action) =>
 {
-	let updatedIds = action.entities[0].refs;
+	let movedIds = action.entities[0].refs;
 
-	return state.filter( id => updatedIds.indexOf(id) === -1);
-};
+	return state.filter( id => movedIds.indexOf(id) === -1);
+}
+
+const insertIfExists = (state, action, entity) =>
+{
+
+	const ref = entity.refs[0];
+	const pos = action.position ? action.position : 0;
+	state = state.concat( [] );
+
+	if ( ! ref) return state;
+	
+	state.splice(action.position, 0, ref);
+
+	return uniq( state );
+}
 
 const refs = (state = [], action, id) =>
 {
@@ -18,13 +32,13 @@ const refs = (state = [], action, id) =>
 			return state.filter( id => deletedIds.indexOf(id) === -1);
 
     case 'UPDATE_ENTITY':
-			const e = action.entities
-							  .find(e => e.id === id);
+			const matchingEntity = action.entities
+														 .find(e => e.id === id);
       
-			if (e === undefined)
+			if (matchingEntity === undefined)
 				return deleteMovedIds(state, action);
 			
-      return uniq( e.refs.concat(state) );
+			return insertIfExists(state, action, matchingEntity);
     
     default:
       return state;

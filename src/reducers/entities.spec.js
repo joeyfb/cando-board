@@ -358,7 +358,7 @@ describe('entities reducer', () =>
             refs: []
           }
         ]);
-
+ 
         expect(
           entities([{
             title: 'Done',
@@ -407,4 +407,200 @@ describe('entities reducer', () =>
           }
         ]);
       });
+
+    it('should handle update with position', () =>
+      {
+        expect(
+
+          entities([
+            { 
+              title: 'Done',
+              object: 'list',
+              id: 0,
+              refs: [ 1, 2 ]
+            },
+            {
+              title: 'Do the THING',
+              object: 'card',
+              id: 1,
+              refs: []
+            },
+            {
+              title: 'Do a THING',
+              object: 'card',
+              id: 2,
+              refs: []
+            },
+            {
+              title: 'And now for something completely different.',
+              object: 'card',
+              id: 3,
+              refs: []
+            }
+          ],
+          {
+            type: 'UPDATE_ENTITY',
+            position: 1,
+            entities: [
+              {
+                id: 0,
+                refs: [ 3 ]
+              }
+            ]
+          })
+        ).toEqual([
+            { 
+              title: 'Done',
+              object: 'list',
+              id: 0,
+              refs: [ 1, 3, 2 ]
+            },
+            {
+              title: 'Do the THING',
+              object: 'card',
+              id: 1,
+              refs: []
+            },
+            {
+              title: 'Do a THING',
+              object: 'card',
+              id: 2,
+              refs: []
+            },
+            {
+              title: 'And now for something completely different.',
+              object: 'card',
+              id: 3,
+              refs: []
+            }
+        ]);
+      });
+        
+    expect(
+        entities([
+          { 
+            title: 'Done',
+            object: 'list',
+            id: 0,
+            refs: [ 1, 2 ]
+          },
+          {
+            title: 'Do the THING',
+            object: 'card',
+            id: 1,
+            refs: []
+          },
+          {
+            title: 'Do a THING',
+            object: 'card',
+            id: 2,
+            refs: []
+          },
+          {
+            title: 'And now for something completely different.',
+            object: 'card',
+            id: 3,
+            refs: []
+          }
+        ],
+        {
+          type: 'UPDATE_ENTITY',
+          position: 0,
+          entities: [
+            {
+              id: 0,
+              refs: [ 3 ]
+            }
+          ]
+        })
+      ).toEqual([
+          { 
+            title: 'Done',
+            object: 'list',
+            id: 0,
+            refs: [ 3, 1, 2 ]
+          },
+          {
+            title: 'Do the THING',
+            object: 'card',
+            id: 1,
+            refs: []
+          },
+          {
+            title: 'Do a THING',
+            object: 'card',
+            id: 2,
+            refs: []
+          },
+          {
+            title: 'And now for something completely different.',
+            object: 'card',
+            id: 3,
+            refs: []
+          }
+        ]);
+        
+    expect(
+        entities([
+          { 
+            title: 'Done',
+            object: 'list',
+            id: 0,
+            refs: [ 1, 2 ]
+          },
+          {
+            title: 'Do the THING',
+            object: 'card',
+            id: 1,
+            refs: []
+          },
+          {
+            title: 'Do a THING',
+            object: 'card',
+            id: 2,
+            refs: []
+          },
+          {
+            title: 'And now for something completely different.',
+            object: 'card',
+            id: 3,
+            refs: []
+          }
+        ],
+        {
+          type: 'UPDATE_ENTITY',
+          position: 3,
+          entities: [
+            {
+              id: 0,
+              refs: [ 3 ]
+            }
+          ]
+        })
+      ).toEqual([
+          { 
+            title: 'Done',
+            object: 'list',
+            id: 0,
+            refs: [ 1, 2, 3 ]
+          },
+          {
+            title: 'Do the THING',
+            object: 'card',
+            id: 1,
+            refs: []
+          },
+          {
+            title: 'Do a THING',
+            object: 'card',
+            id: 2,
+            refs: []
+          },
+          {
+            title: 'And now for something completely different.',
+            object: 'card',
+            id: 3,
+            refs: []
+          }
+        ]);
   });
