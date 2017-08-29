@@ -422,6 +422,9 @@ nav.main,
 header.board-title {
   color: white; }
 
+.board-header {
+  height: 25px; }
+
 /**
 * layout
 */
@@ -521,14 +524,11 @@ header.board-title h3 {
   margin-top: 26px; }
 
 div.card {
-  margin-bottom: 10px;
+  padding-bottom: 10px;
   cursor: pointer; }
   div.card h4 {
     margin: 0;
     font-weight: 300; }
-  div.card.active > div.inner-card,
-  div.card:hover > div.inner-card {
-    display: block; }
 
 div.inner-card {
   display: none; }
@@ -601,6 +601,10 @@ input.editable-field:focus {
   font-weight: inherit;
   border: none; }
 
+.add-list {
+  margin-top: 10px;
+  margin-bottom: 5px; }
+
 .board.moving {
   cursor: grabbing !important; }
 
@@ -608,12 +612,13 @@ input.editable-field:focus {
 .moving-card {
   transition: color 0.2s ease-in-out, background 0.2s ease-in-out; }
 
-.moving-card {
+.moving-card h4 {
   border-radius: 0 0 0 5px;
   color: #aaa;
   background: #eee; }
-  .moving-card .delete-button {
-    display: none; }
+
+.moving-card .delete-button {
+  display: none; }
 
 @media screen and (max-width: 600px) {
   div.lists-wrapper {

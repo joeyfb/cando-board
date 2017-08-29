@@ -54,6 +54,11 @@ header.board-title
 	color: white;
 }
 
+.board-header
+{
+  height: 25px;
+}
+
 /**
 * layout
 */
@@ -209,19 +214,13 @@ header.board-title h3
 // card
 div.card
 {
-	margin-bottom: 10px;
+	padding-bottom: 10px;
   cursor: pointer;
 
 	h4
 	{
 		margin: 0;
 		font-weight: 300;
-	}
-
-	&.active > div.inner-card,
-	&:hover > div.inner-card
-	{
-		display: block;
 	}
 }
 
@@ -337,6 +336,12 @@ input.editable-field:focus
   border: none;
 }
 
+.add-list
+{
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
 .board.moving 
 {
   cursor: grabbing !important;
@@ -351,9 +356,12 @@ input.editable-field:focus
 
 .moving-card
 {
-  border-radius: 0 0 0 5px;
-  color: #aaa;
-  background: #eee;
+  h4
+  {
+    border-radius: 0 0 0 5px;
+    color: #aaa;
+    background: #eee;
+  }
 
   & .delete-button
   {
