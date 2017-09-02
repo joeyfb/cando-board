@@ -1,47 +1,55 @@
 import React from 'react';
 import EntityDelete from '../containers/EntityDelete';
 
-const Card = ({
-  title,
-  description,
-  id,
-  created,
-  checklists,
-  onMouseDown,
-  onMouseUp,
-  isMoving
-}) =>
+class Card extends React.Component
 {
-  let movingClass = (isMoving) ? ' moving-card ' : '';
+	constructor(props)
+	{
+		super(props);
+		this.state = { isHover: false };
+	}
 
-  return(
-     <li>
-         <div
-           className={'card' + movingClass}
-          > 
-            <h4>
-                <span
-                 onMouseDown={onMouseDown}
-                 onMouseUp={onMouseUp}
-                >
-                  {title}
-                </span>
+	setHover(isHover)
+  {
+		this.setState( { isHover } )
+  }
 
-                <EntityDelete id={id} />
-            </h4>
+	render()
+	{
+		let movingClass = (this.props.isMoving) ? ' moving-card ' : '';
+		let hoverClass = (this.state.isHover) ? ' hovering ' : '';
 
-            <div className="inner-card">
-                <p className="description">
-                    {description} 
-                </p>
+		return(
+			 <li
+         onMouseEnter={() => this.setHover(true)} 
+         onMouseLeave={() => this.setHover(false)} 
+         onMouseUp={this.props.onMouseUp}
+         onMouseDown={this.props.onMouseDown}
+       >
+					 <div
+						 className={'card' + movingClass + hoverClass}
+						> 
+							<h4>
+									<span>
+										{this.props.title}
+									</span>
 
-                <p className="date">
-                    {created} 
-                </p> 
-            </div>
-         </div>
-     </li>
-  );
+									<EntityDelete id={this.props.id} />
+							</h4>
+
+							<div className="inner-card">
+									<p className="description">
+											{this.props.description} 
+									</p>
+
+									<p className="date">
+											{this.props.created} 
+									</p> 
+							</div>
+					 </div>
+			 </li>
+		);
+  }
 }
 
 export default Card
