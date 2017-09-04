@@ -470,6 +470,7 @@ section.board-list {
   white-space: normal; }
 
 ul.card-list {
+  margin: 5px 0 0;
   padding: 0;
   list-style: none; }
 
@@ -512,10 +513,8 @@ section.board-list {
   section.board-list h3 {
     margin: 5px 0 0;
     text-align: center; }
-  section.board-list ul {
-    margin: 10px 0 0; }
-    section.board-list ul li:last-child {
-      margin-bottom: 5px; }
+  section.board-list ul li:last-child {
+    margin-bottom: 5px; }
 
 section.board-list + section.board-list {
   margin-left: 0.5rem; }
@@ -524,7 +523,7 @@ header.board-title h3 {
   margin-top: 26px; }
 
 div.card {
-  padding-bottom: 10px;
+  padding: 5px 0;
   cursor: pointer; }
   div.card h4 {
     margin: 0;
@@ -605,8 +604,32 @@ input.editable-field:focus {
   margin-top: 10px;
   margin-bottom: 5px; }
 
-.board.moving {
-  cursor: grabbing !important; }
+.board.moving,
+.board.moving * {
+  cursor: grab !important;
+  webkit-cursor: grab !important; }
+  .board.moving .hovering,
+  .board.moving * .hovering {
+    position: relative; }
+    .board.moving .hovering:before,
+    .board.moving * .hovering:before {
+      position: absolute;
+      content: ' ';
+      top: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: rgba(0, 0, 0, 0.8); }
+    .board.moving .hovering.moving-card:before,
+    .board.moving * .hovering.moving-card:before {
+      display: none; }
+  .board.moving .moving-card ~ .card,
+  .board.moving * .moving-card ~ .card {
+    background-color: pink !important; }
+  .board.moving .moving-card ~ .hovering:before,
+  .board.moving * .moving-card ~ .hovering:before {
+    top: auto;
+    bottom: -1px; }
 
 .card,
 .moving-card {

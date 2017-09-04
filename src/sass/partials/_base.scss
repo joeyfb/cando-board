@@ -116,6 +116,7 @@ section.board-list
 
 ul.card-list
 {
+    margin: 5px 0 0;
     padding: 0;
     list-style: none;
 }
@@ -181,13 +182,11 @@ section.board-list
 	h3
 	{
 		margin: 5px 0 0;
-        text-align: center;
+    text-align: center;
 	}
 
 	ul
 	{
-		margin: 10px 0 0;
-
 		li:last-child
 		{
 			margin-bottom: 5px;
@@ -214,7 +213,7 @@ header.board-title h3
 // card
 div.card
 {
-	padding-bottom: 10px;
+  padding: 5px 0;
   cursor: pointer;
 
 	h4
@@ -255,18 +254,18 @@ div.inner-card
 
 input
 {
-    border: none;
-    border-bottom: 1px solid $color-black;
-    margin-right: 0.5rem;
+	border: none;
+	border-bottom: 1px solid $color-black;
+	margin-right: 0.5rem;
 }
 
 button
 {
-    border: none;
-    color: $color-white;
-    background: $color-black;
+	border: none;
+	color: $color-white;
+	background: $color-black;
 
-    padding: 0.25rem 0.5rem;
+	padding: 0.25rem 0.5rem;
 }
 
 .delete-button
@@ -342,9 +341,43 @@ input.editable-field:focus
   margin-bottom: 5px;
 }
 
-.board.moving 
+.board.moving,
+.board.moving *
 {
-  cursor: grabbing !important;
+  $push: -1px;
+  cursor: grab !important;
+  webkit-cursor: grab !important;
+
+  .hovering
+  {
+    position: relative;
+
+    &:before
+    {
+      position: absolute;
+      content: ' ';
+      top: $push; left: 0; right: 0;
+
+      height: 2px;
+      background-color: rgba(black, 0.8);
+    }
+
+    &.moving-card:before
+    {
+      display: none;
+    }
+
+  }
+
+  .moving-card ~ .card
+  {
+    background-color: pink !important;
+  }
+
+  .moving-card ~ .hovering:before
+  {
+      top: auto; bottom: $push;
+  }
 }
 
 .card,

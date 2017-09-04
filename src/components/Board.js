@@ -11,7 +11,7 @@ const Board = ({
   id
 }) =>
 {
-  const isMoving = moving.hasOwnProperty('lists');
+  const isMoving = moving.hasOwnProperty('entities');
   const moveClass = (isMoving) ? ' moving ' : '';
 
   return (

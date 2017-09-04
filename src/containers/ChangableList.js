@@ -44,9 +44,9 @@ const mapDispatchToProps = (dispatch, ownProps) =>
       return;
     }
 
-    const startList = start.entities[0];
+    const startListCards = start.entities[0].refs;
 
-    dispatch(moveCard(id, startList.refs, pos));
+    dispatch(moveCard(id, startListCards, pos));
     dispatch(moveClear());
   },
 

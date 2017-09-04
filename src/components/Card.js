@@ -25,9 +25,10 @@ class Card extends React.Component
          onMouseLeave={() => this.setHover(false)} 
          onMouseUp={this.props.onMouseUp}
          onMouseDown={this.props.onMouseDown}
+         className={'card-container' + movingClass + hoverClass}
        >
 					 <div
-						 className={'card' + movingClass + hoverClass}
+						 className={'card'}
 						> 
 							<h4>
 									<span>
